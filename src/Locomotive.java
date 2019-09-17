@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Random;
-
 public class Locomotive {
 	private int id;
 	private String name;
