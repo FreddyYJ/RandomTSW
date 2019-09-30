@@ -1,3 +1,4 @@
+package com.github.freddyyj.randomtsw;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;

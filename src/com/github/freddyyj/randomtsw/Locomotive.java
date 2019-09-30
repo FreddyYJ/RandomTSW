@@ -1,3 +1,4 @@
+package com.github.freddyyj.randomtsw;
 public class Locomotive {
 	private int id;
 	private String name;
