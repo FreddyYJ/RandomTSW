@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+  </rowConstraints>
+   <children>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0">
+         <content>
+            <VBox prefHeight="273.0">
+               <children>
+                  <CheckBox id="CheckCSX" mnemonicParsing="false" selected="true" text="CSX Heavy Haul">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckNEC" mnemonicParsing="false" selected="true" text="NEC New York">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckGWR" mnemonicParsing="false" selected="true" text="Great Western Express">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckRT" mnemonicParsing="false" selected="true" text="Rapid Transit">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckWSR" mnemonicParsing="false" selected="true" text="West Somerset Railway">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckRSN" mnemonicParsing="false" selected="true" text="Ruhr-Sieg Nord">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckLIRR" mnemonicParsing="false" selected="true" text="Long Island Railroad">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckNTP" mnemonicParsing="false" selected="true" text="Northern Trans-Pennine">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckMSB" mnemonicParsing="false" selected="true" text="Main-Spessart Bahn">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckTVL" mnemonicParsing="false" selected="true" text="Tees Valley Line">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckPC" mnemonicParsing="false" selected="true" text="Peninsula Corridor">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckRRO" mnemonicParsing="false" selected="true" text="Rhein-Ruhr Osten">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox id="CSXLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckCSXGP38" mnemonicParsing="false" selected="true" text="GP38-2 CSX">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckCSXGP40" mnemonicParsing="false" selected="true" text="GP40-2 CSX">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckCSXSD40" mnemonicParsing="false" selected="true" text="SD40-2 CSX">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckCSXAC4400CW" mnemonicParsing="false" selected="true" text="AC4400CW CSX">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="NECLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckNECGP38" mnemonicParsing="false" selected="true" text="GP38-2 CSX">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNECGP40" mnemonicParsing="false" selected="true" text="GP40-2 CSX">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNECACS-64" mnemonicParsing="false" selected="true" text="ACS-64">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNECSW1000R" mnemonicParsing="false" selected="true" text="SW1000R V">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNECEX" mnemonicParsing="false" selected="true" text="Ex-Metroliner Cab Car">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="GWRLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckGWR43" mnemonicParsing="false" selected="true" text="BR Class 43 HST">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckGWR166" mnemonicParsing="false" selected="true" text="BR Class 166">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckGWR66" mnemonicParsing="false" selected="true" text="BR Class 66">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="RTLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckRT1442" mnemonicParsing="false" selected="true" text="DB BR 1442 'Talent 2'">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckRT182" mnemonicParsing="false" selected="true" text="DB BR 182">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckRT766" mnemonicParsing="false" selected="true" text="DB BR 766.2 DBpbzfa">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="WSRLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckWSR09" mnemonicParsing="false" selected="true" text="BR Class 09 GRN">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckWSR47" mnemonicParsing="false" selected="true" text="BR Class 47 GRN">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckWSR33" mnemonicParsing="false" selected="true" text="BR Class 33 GRN">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckWSR52" mnemonicParsing="false" selected="true" text="BR Class 52 MAR 'Western'">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckWSR08" mnemonicParsing="false" selected="true" text="BR Class 08 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="RSNLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckRSN767" mnemonicParsing="false" selected="true" text="DB BR 767.2 DABpbzfa">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckRSN185" mnemonicParsing="false" selected="true" text="DB BR 185.2">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckRSN182" mnemonicParsing="false" selected="true" text="DB BR 182">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckRSN143" mnemonicParsing="false" selected="true" text="DB BR 143">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckRSN155" mnemonicParsing="false" selected="true" text="DB BR 155">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="LIRRLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckLIRRM7" mnemonicParsing="false" selected="true" text="M7 LIRR">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="NTPLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckNTP101" mnemonicParsing="false" selected="true" text="BR Class 101 BLG">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNTP45" mnemonicParsing="false" selected="true" text="BR Class 45/1 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNTP47" mnemonicParsing="false" selected="true" text="BR Class 47/4 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNTP40" mnemonicParsing="false" selected="true" text="BR Class 40 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckNTP08" mnemonicParsing="false" selected="true" text="BR Class 08 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="MSBLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckMSB766" mnemonicParsing="false" selected="true" text="DB BR 766.2 DBpbzfa">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckMSB185" mnemonicParsing="false" selected="true" text="DB BR 185.2">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckMSB182" mnemonicParsing="false" selected="true" text="DB BR 182">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckMSB143" mnemonicParsing="false" selected="true" text="DB BR 143">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckMSB155" mnemonicParsing="false" selected="true" text="DB BR 155">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckMSB146" mnemonicParsing="false" selected="true" text="DB BR 146.2">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="TVLLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckTVL101" mnemonicParsing="false" selected="true" text="BR Class 101 GRN">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckTVL37" mnemonicParsing="false" selected="true" text="BR Class 37/5 RF">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckTVL08" mnemonicParsing="false" selected="true" text="BR Class 08 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="PCLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckPCF40" mnemonicParsing="false" selected="true" text="F40PH-2CAT CT97">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckPCGallery" mnemonicParsing="false" selected="true" text="Gallery Cab Car CT97">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckPCGP38" mnemonicParsing="false" selected="true" text="GP38-2 UP">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox id="RROLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox id="CheckRRO185" mnemonicParsing="false" selected="true" text="BR 185.5 MRCE">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox id="CheckRRO422" mnemonicParsing="false" selected="true" text="DB BR 422">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+         <content>
+            <VBox prefHeight="200.0">
+               <children>
+                  <CheckBox id="CheckSpringClear" mnemonicParsing="false" selected="true" text="Spring Clear">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckSpringCloudy" mnemonicParsing="false" selected="true" text="Spring Cloudy">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckSpringRain" mnemonicParsing="false" selected="true" text="Spring Rain">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckSummerClear" mnemonicParsing="false" selected="true" text="Summer Clear">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckSummerCloudy" mnemonicParsing="false" selected="true" text="Summer Cloudy">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckSummerFog" mnemonicParsing="false" selected="true" text="Summer Fog">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckSummerRain" mnemonicParsing="false" selected="true" text="Summer Rain">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckAutumnClear" mnemonicParsing="false" selected="true" text="Autumn Clear">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckAutumnCloudy" mnemonicParsing="false" selected="true" text="Autumn Cloudy">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckAutumnMist" mnemonicParsing="false" selected="true" text="Autumn Mist">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckAutumnDrizzle" mnemonicParsing="false" selected="true" text="Autumn Drizzle">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckWinterFog" mnemonicParsing="false" selected="true" text="Winter Fog">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckWinterBlizzard" mnemonicParsing="false" selected="true" text="Winter Blizzard">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckWinterSnow" mnemonicParsing="false" selected="true" text="Winter Snow">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckWinterClear" mnemonicParsing="false" selected="true" text="Winter Clear">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox id="CheckWinterCloudy" mnemonicParsing="false" selected="true" text="Winter Cloudy">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Button id="RandomRoute" mnemonicParsing="false" text="Pick Route" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button id="RandomLoco" mnemonicParsing="false" text="Pick Locomotive" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button id="RandomWeather" mnemonicParsing="false" text="Pick Weather" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button id="RandomAll" defaultButton="true" mnemonicParsing="false" text="Pick All" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <TextField id="PickedRoute" disable="true" GridPane.rowIndex="1" />
+      <TextField id="PickedLoco" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField id="PickedWeather" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+   </children>
+</GridPane>

@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import javafx.application.Application;
+
 public class Main {
 	private ArrayList<Locomotive> locoList;
 	private ArrayList<Route> routeList;
 	public static final String ROUTE_DIR_NAME="TSWRoutes";
+	public static void main(String[] args) {
+		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
+	}
 	public Main()
 	{
 		locoList=new ArrayList<>();
@@ -40,7 +45,7 @@ public class Main {
 		}
 		return null;
 	}
-	public static void main(String[] args) {
+	public void printRandomTSW(String[] args) {
 		// TODO Auto-generated method stub
 		Main main=new Main();
 		if (args.length==0)
