@@ -44,11 +44,27 @@ public class Main {
 		int num=random.nextInt(locoList.size());
 		return locoList.get(num);
 	}
-	public Weather getRansomWeather()
+	public Locomotive getRandomLocomotive(Route route) {
+		ArrayList<Locomotive> locos=new ArrayList<>();
+		for (int i=0;i<locoList.size();i++) {
+			if (locoList.get(i).getRoute()==route.getId()) {
+				locos.add(locoList.get(i));
+			}
+		}
+		Random random=new Random();
+		int num=random.nextInt(locos.size());
+		return locos.get(num);
+	}
+	public Weather getRandomWeather()
 	{
 		Random random=new Random();
 		int num=random.nextInt(weatherList.size());
 		return weatherList.get(num);
+	}
+	public Route getRandomRoute() {
+		Random random=new Random();
+		int num=random.nextInt(routeList.size());
+		return routeList.get(num);
 	}
 	public Route getRoute(Locomotive loco)
 	{
@@ -59,6 +75,15 @@ public class Main {
 		}
 		return null;
 	}
+	public Route getRoute(String name) {
+		for (int i=0;i<routeList.size();i++) {
+			if (routeList.get(i).getName().equals(name)) {
+				return routeList.get(i);
+			}
+		}
+		return null;
+	}
+	@Deprecated
 	public void printRandomTSW(String[] args) {
 		Main main=new Main();
 		Locomotive loco=main.getRandomLocomotive();

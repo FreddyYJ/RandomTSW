@@ -486,9 +486,9 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="buttonRandomRoute" mnemonicParsing="false" text="Pick Route" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Button fx:id="buttonRandomLoco" mnemonicParsing="false" text="Pick Locomotive" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Button fx:id="buttonRandomWeather" mnemonicParsing="false" text="Pick Weather" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="buttonRandomRoute" mnemonicParsing="false" text="Pick Route" GridPane.halignment="CENTER" GridPane.rowIndex="2" onAction="#onRandomRoute"/>
+      <Button fx:id="buttonRandomLoco" mnemonicParsing="false" text="Pick Locomotive" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" onAction="#onRandomLoco"/>
+      <Button fx:id="buttonRandomWeather" mnemonicParsing="false" text="Pick Weather" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" onAction="#onRandomWeather"/>
       <Button fx:id="buttonRandomAll" defaultButton="true" mnemonicParsing="false" onAction="#onRandomAll" text="Pick All" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
       <TextField fx:id="textPickedRoute" disable="true" GridPane.rowIndex="1" />
       <TextField fx:id="textPickedLoco" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />

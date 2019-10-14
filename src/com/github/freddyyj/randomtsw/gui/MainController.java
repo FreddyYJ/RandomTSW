@@ -82,11 +82,29 @@ public class MainController {
 	protected void onRandomAll(ActionEvent e) {
 		Locomotive loco=core.getRandomLocomotive();
 		Route route=core.getRoute(loco);
-		Weather weather=core.getRansomWeather();
+		Weather weather=core.getRandomWeather();
 		textPickedRoute.setText(route.getName());
 		textPickedLoco.setText(loco.getName());
 		textPickedWeather.setText(weather.getName());
 	}
+	@FXML
+	protected void onRandomRoute(ActionEvent e) {
+		Route route=core.getRandomRoute();
+		textPickedRoute.setText(route.getName());
+	}
+	@FXML
+	protected void onRandomLoco(ActionEvent e) {
+		Locomotive loco=core.getRandomLocomotive(core.getRoute(getRouteByVBox(currentRoute).getText()));
+		Route route=core.getRoute(loco);
+		textPickedRoute.setText(route.getName());
+		textPickedLoco.setText(loco.getName());
+	}
+	@FXML
+	protected void onRandomWeather(ActionEvent e) {
+		Weather weather=core.getRandomWeather();
+		textPickedWeather.setText(weather.getName());
+	}
+
 	protected VBox getLocoBoxByID(String routeId) {
 		List<Node> loco=boxLoco.getChildren();
 		String locoId;
@@ -96,6 +114,17 @@ public class MainController {
 		for (int i=0;i<loco.size();i++) {
 			if (loco.get(i).getId().equals(locoId))
 				return (VBox) loco.get(i);
+		}
+		return null;
+	}
+	protected CheckBox getRouteByVBox(VBox locoId) {
+		String id;
+		id=(locoId.getId().split("box"))[1];
+		id=(id.split("Locos"))[0];
+		id="check"+id;
+		for (int i=0;i<routes.size();i++) {
+			if (routes.get(i).getId().equals(id))
+				return (CheckBox) routes.get(i);
 		}
 		return null;
 	}
