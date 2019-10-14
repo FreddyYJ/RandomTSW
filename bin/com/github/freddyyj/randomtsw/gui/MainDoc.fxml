@@ -26,7 +26,7 @@
    <children>
       <ScrollPane prefHeight="200.0" prefWidth="200.0">
          <content>
-            <VBox prefHeight="273.0">
+            <VBox id="BoxRoute" prefHeight="273.0">
                <children>
                   <CheckBox id="CheckCSX" mnemonicParsing="false" selected="true" text="CSX Heavy Haul">
                      <padding>
@@ -94,7 +94,7 @@
       </ScrollPane>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <content>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane id="BoxLoco" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <VBox id="CSXLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
@@ -400,7 +400,7 @@
       </ScrollPane>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
          <content>
-            <VBox prefHeight="200.0">
+            <VBox id="BoxWeather" prefHeight="200.0">
                <children>
                   <CheckBox id="CheckSpringClear" mnemonicParsing="false" selected="true" text="Spring Clear">
                      <padding>
