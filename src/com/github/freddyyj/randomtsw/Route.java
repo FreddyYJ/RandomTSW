@@ -10,12 +10,17 @@ public class Route {
 	private int number;
 	private String nameString;
 	private File routeFile;
+	@Deprecated
 	public Route(int num, File file)
 	{
 		number=num;
 		routeFile=file;
 		String[] name=file.getName().split(".txt");
 		nameString=name[0];
+	}
+	public Route(int num,String name) {
+		number=num;
+		nameString=name;
 	}
 	public String getName()
 	{
