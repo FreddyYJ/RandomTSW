@@ -1,13 +1,11 @@
-public class Locomotive {
+package com.github.freddyyj.randomtsw;
+
+public class Weather {
 	private int id;
 	private String name;
-	private int route;
-	public static int count=0;
-	public Locomotive(int id,String name,int route)
-	{
+	public Weather(int id,String name) {
 		this.setId(id);
 		this.setName(name);
-		this.setRoute(route);
 	}
 	public int getId() {
 		return id;
@@ -21,10 +19,5 @@ public class Locomotive {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getRoute() {
-		return route;
-	}
-	public void setRoute(int route) {
-		this.route = route;
-	}
+	
 }
