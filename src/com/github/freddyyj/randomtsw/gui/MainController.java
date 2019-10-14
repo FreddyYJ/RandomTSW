@@ -40,6 +40,8 @@ public class MainController {
 		routes=boxRoute.getChildren();
 		weathers=boxWeather.getChildren();
 		currentRoute=getLocoBoxByID("checkCSX");
+		currentRoute.setVisible(true);
+		currentRoute.setDisable(false);
 		List<Node> locoList;
 		for (int i=0;i<boxLoco.getChildren().size();i++) {
 			VBox locoBox=(VBox) boxLoco.getChildren().get(i);
@@ -65,18 +67,16 @@ public class MainController {
 	}
 	@FXML
 	protected void onCheckRouteClick(MouseEvent e) {
-		if(currentRoute!=null) {
-			currentRoute.setVisible(false);
-			currentRoute.setDisable(true);
-			Node routeBox=(Node)e.getSource();
-			String id=routeBox.getId();
-			currentRoute=getLocoBoxByID(id);
-			currentRoute.setVisible(true);
-			currentRoute.setDisable(false);
-		}
-		else {
+		if(currentRoute==null) {
 			currentRoute=getLocoBoxByID("checkCSX");
 		}
+		currentRoute.setVisible(false);
+		currentRoute.setDisable(true);
+		Node routeBox=(Node)e.getSource();
+		String id=routeBox.getId();
+		currentRoute=getLocoBoxByID(id);
+		currentRoute.setVisible(true);
+		currentRoute.setDisable(false);
 	}
 	@FXML
 	protected void onRandomAll(ActionEvent e) {
