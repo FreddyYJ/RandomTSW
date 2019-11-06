@@ -1,4 +1,4 @@
 # RandomTSW
 It will pick random route and locomotive from Train Sim World.\
-It will help you to pick Services.\
-Current Version is 0.1.0 Beta.
+It will help you to pick Services jobs.\
+Current Version is 0.2.0 Beta.
