@@ -9,5 +9,5 @@ v0.2.0
 * Pick random all, random locos, random routes, or random weather
 * Checkboxs don't work
 
-v0.1.0\
+v0.1.0
 * Init version
