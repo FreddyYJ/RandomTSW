@@ -4,6 +4,8 @@ It will help you to pick Services jobs.\
 Current Version is 0.2.0 Beta.
 
 Changelog\
+v0.2.1
+* Add BR Class 31 to Tees Valley Line and West Somerset Railway
 v0.2.0
 * Add GUI
 * Pick random all, random locos, random routes, or random weather
