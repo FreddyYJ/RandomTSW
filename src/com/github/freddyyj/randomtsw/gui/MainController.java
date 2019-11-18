@@ -82,7 +82,14 @@ public class MainController {
 	protected void onRandomAll(ActionEvent e) {
 		Locomotive loco=core.getRandomLocomotive();
 		Route route=core.getRoute(loco);
+		CheckBox locoBox=getLocoByName(loco.getName(), route.getId());
 		Weather weather=core.getRandomWeather();
+		while (!locoBox.isSelected() || !getWeatherByName(weather.getName()).isSelected() || !((CheckBox)routes.get(route.getId())).isSelected()) {
+			loco=core.getRandomLocomotive();
+			route=core.getRoute(loco);
+			locoBox=getLocoByName(loco.getName(), route.getId());
+			weather=core.getRandomWeather();
+		}
 		textPickedRoute.setText(route.getName());
 		textPickedLoco.setText(loco.getName());
 		textPickedWeather.setText(weather.getName());
@@ -90,18 +97,27 @@ public class MainController {
 	@FXML
 	protected void onRandomRoute(ActionEvent e) {
 		Route route=core.getRandomRoute();
+		while(!((CheckBox)routes.get(route.getId())).isSelected()) {
+			route=core.getRandomRoute();
+		}
 		textPickedRoute.setText(route.getName());
 	}
 	@FXML
 	protected void onRandomLoco(ActionEvent e) {
 		Locomotive loco=core.getRandomLocomotive(core.getRoute(getRouteByVBox(currentRoute).getText()));
 		Route route=core.getRoute(loco);
+		while(!getLocoByName(loco.getName(), route.getId()).isSelected() || !((CheckBox)routes.get(route.getId())).isSelected()) {
+			loco=core.getRandomLocomotive(core.getRoute(getRouteByVBox(currentRoute).getText()));
+			route=core.getRoute(loco);
+		}
 		textPickedRoute.setText(route.getName());
 		textPickedLoco.setText(loco.getName());
 	}
 	@FXML
 	protected void onRandomWeather(ActionEvent e) {
 		Weather weather=core.getRandomWeather();
+		while (!getWeatherByName(weather.getName()).isSelected())
+			weather=core.getRandomWeather();
 		textPickedWeather.setText(weather.getName());
 	}
 
@@ -125,6 +141,21 @@ public class MainController {
 		for (int i=0;i<routes.size();i++) {
 			if (routes.get(i).getId().equals(id))
 				return (CheckBox) routes.get(i);
+		}
+		return null;
+	}
+	protected CheckBox getLocoByName(String name,int routeId) {
+		List<Node> locoList=locos.get(routeId);
+		for (int i=0;i<locoList.size();i++) {
+			if (((CheckBox)locoList.get(i)).getText().equals(name))
+				return (CheckBox) locoList.get(i);
+		}
+		return null;
+	}
+	protected CheckBox getWeatherByName(String name) {
+		for (int i=0;i<weathers.size();i++) {
+			if (((CheckBox)weathers.get(i)).getText().equals(name))
+				return (CheckBox) weathers.get(i);
 		}
 		return null;
 	}
