@@ -214,6 +214,11 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
+                        <CheckBox fx:id="checkWSR31" mnemonicParsing="false" selected="true" text="BR Class 31 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
                      </children>
                   </VBox>
                   <VBox fx:id="boxRSNLocos" disable="true" prefHeight="200.0" visible="false">
@@ -319,7 +324,7 @@
                   </VBox>
                   <VBox fx:id="boxTVLLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox id="checkTVL101" mnemonicParsing="false" selected="true" text="BR Class 101 GRN">
+                        <CheckBox fx:id="checkTVL101" mnemonicParsing="false" selected="true" text="BR Class 101 GRN">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -330,6 +335,11 @@
                            </padding>
                         </CheckBox>
                         <CheckBox fx:id="checkTVL08" mnemonicParsing="false" selected="true" text="BR Class 08 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkTVL31" mnemonicParsing="false" selected="true" text="BR Class 31 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -486,9 +496,9 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="buttonRandomRoute" mnemonicParsing="false" text="Pick Route" GridPane.halignment="CENTER" GridPane.rowIndex="2" onAction="#onRandomRoute"/>
-      <Button fx:id="buttonRandomLoco" mnemonicParsing="false" text="Pick Locomotive" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" onAction="#onRandomLoco"/>
-      <Button fx:id="buttonRandomWeather" mnemonicParsing="false" text="Pick Weather" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" onAction="#onRandomWeather"/>
+      <Button fx:id="buttonRandomRoute" mnemonicParsing="false" onAction="#onRandomRoute" text="Pick Route" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="buttonRandomLoco" mnemonicParsing="false" onAction="#onRandomLoco" text="Pick Locomotive" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="buttonRandomWeather" mnemonicParsing="false" onAction="#onRandomWeather" text="Pick Weather" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Button fx:id="buttonRandomAll" defaultButton="true" mnemonicParsing="false" onAction="#onRandomAll" text="Pick All" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
       <TextField fx:id="textPickedRoute" disable="true" GridPane.rowIndex="1" />
       <TextField fx:id="textPickedLoco" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
