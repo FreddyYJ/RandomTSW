@@ -28,62 +28,67 @@
          <content>
             <VBox fx:id="boxRoute" prefHeight="273.0">
                <children>
-                  <CheckBox fx:id="checkCSX" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="CSX Heavy Haul">
+                  <CheckBox fx:id="checkCSX" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="CSX Heavy Haul">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkNEC" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="NEC New York">
+                  <CheckBox fx:id="checkNEC" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="NEC New York">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkGWR" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Great Western Express">
+                  <CheckBox fx:id="checkGWR" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Great Western Express">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkRT" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Rapid Transit">
+                  <CheckBox fx:id="checkRT" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Rapid Transit">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkWSR" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="West Somerset Railway">
+                  <CheckBox fx:id="checkWSR" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="West Somerset Railway">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkRSN" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Ruhr-Sieg Nord">
+                  <CheckBox fx:id="checkRSN" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Ruhr-Sieg Nord">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkLIRR" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Long Island Railroad">
+                  <CheckBox fx:id="checkLIRR" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Long Island Railroad">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkNTP" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Northern Trans-Pennine">
+                  <CheckBox fx:id="checkNTP" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Northern Trans-Pennine">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkMSB" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Main-Spessart Bahn">
+                  <CheckBox fx:id="checkMSB" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Main-Spessart Bahn">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkTVL" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Tees Valley Line">
+                  <CheckBox fx:id="checkTVL" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Tees Valley Line">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkPC" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Peninsula Corridor">
+                  <CheckBox fx:id="checkPC" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Peninsula Corridor">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkRRO" mnemonicParsing="false" onMouseClicked="#onCheckRouteClick" selected="true" text="Rhein-Ruhr Osten">
+                  <CheckBox fx:id="checkRRO" mnemonicParsing="false" onMouseClicked="#onCheckRouteSelect" selected="true" text="Rhein-Ruhr Osten">
+                     <padding>
+                        <Insets left="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <CheckBox fx:id="checkECW" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="East Coastway">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
@@ -398,6 +403,20 @@
                            </padding>
                         </CheckBox>
                         <CheckBox fx:id="checkRRO155" mnemonicParsing="false" selected="true" text="DB BR 155">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="boxECWLocos" disable="true" prefHeight="200.0" visible="false">
+                     <children>
+                        <CheckBox fx:id="checkECW377" mnemonicParsing="false" selected="true" text="BR Class 377/4">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkECW66" mnemonicParsing="false" selected="true" text="BR Class 66 EWS">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>

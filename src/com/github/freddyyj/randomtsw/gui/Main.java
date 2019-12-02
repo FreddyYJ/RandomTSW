@@ -2,7 +2,6 @@ package com.github.freddyyj.randomtsw.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -17,5 +16,10 @@ public class Main extends Application{
 		
 		
 		primaryStage.show();
+	}
+	@Override
+	public void stop() throws Exception {
+		// TODO Save unselected checkbox
+		super.stop();
 	}
 }

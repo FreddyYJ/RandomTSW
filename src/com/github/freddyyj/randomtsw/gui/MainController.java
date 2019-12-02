@@ -1,5 +1,7 @@
 package com.github.freddyyj.randomtsw.gui;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
@@ -9,19 +11,19 @@ import com.github.freddyyj.randomtsw.Main;
 import com.github.freddyyj.randomtsw.Route;
 import com.github.freddyyj.randomtsw.Weather;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class MainController {
+	public static final String SAVEFILE_NAME="config.json";
 	@FXML private VBox boxRoute;
 	@FXML private Pane boxLoco;
 	@FXML private VBox boxWeather;
@@ -33,6 +35,7 @@ public class MainController {
 	private List<Node> weathers;
 	private VBox currentRoute;
 	private Main core;
+	private File saveFile;
 	public MainController() {}
 	@FXML
 	private void initialize() {
@@ -64,6 +67,18 @@ public class MainController {
 			weather.add(((CheckBox)weathers.get(i)).getText());
 		}
 		core=new Main(routes,locos,weather);
+		
+		saveFile=new File(SAVEFILE_NAME);
+		if (!saveFile.exists())
+			try {
+				saveFile.createNewFile();
+			} catch (IOException e) {
+				Alert alert=new Alert(AlertType.ERROR);
+				alert.setContentText("Error at creating config file:\n"+e.getMessage());
+				alert.setTitle("Error at config");
+				alert.show();
+				System.exit(1);
+			}
 	}
 	@FXML
 	protected void onCheckRouteClick(MouseEvent e) {
@@ -120,7 +135,18 @@ public class MainController {
 			weather=core.getRandomWeather();
 		textPickedWeather.setText(weather.getName());
 	}
-
+	@FXML
+	protected void onCheckLocoSelect(ActionEvent e) {
+		//TODO save unselected locos at save file
+		e.getSource();
+	}
+	@FXML
+	protected void onCheckRouteSelect(ActionEvent e) {
+		//TODO save unselected routes at save file
+		//TODO save file must be in user\document\randomtsw directory
+		//	by javax.swing.filechooser.FileSystemView.getFileSystemView().getDefaultDirectory().getPath()
+		CheckBox selectedRoute=(CheckBox) e.getSource();
+	}
 	protected VBox getLocoBoxByID(String routeId) {
 		List<Node> loco=boxLoco.getChildren();
 		String locoId;
