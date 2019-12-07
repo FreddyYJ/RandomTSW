@@ -143,9 +143,9 @@ public class MainController {
 	@FXML
 	protected void onCheckRouteSelect(ActionEvent e) {
 		//TODO save unselected routes at save file
-		//TODO save file must be in user\document\randomtsw directory
-		//	by javax.swing.filechooser.FileSystemView.getFileSystemView().getDefaultDirectory().getPath()
-		CheckBox selectedRoute=(CheckBox) e.getSource();
+		CheckBox selectedRoute;
+		if(e.getSource() instanceof CheckBox)
+			selectedRoute=(CheckBox) e.getSource();
 	}
 	protected VBox getLocoBoxByID(String routeId) {
 		List<Node> loco=boxLoco.getChildren();

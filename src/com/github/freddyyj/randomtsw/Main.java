@@ -1,5 +1,7 @@
 package com.github.freddyyj.randomtsw;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +14,7 @@ public class Main {
 	private ArrayList<Locomotive> locoList;
 	private ArrayList<Route> routeList;
 	private ArrayList<Weather> weatherList;
+	private String documentFile=javax.swing.filechooser.FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
 	public static void main(String[] args) {
 		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
 	}
@@ -29,10 +32,13 @@ public class Main {
 		
 		for (int i=0;i<routeName.size();i++)
 		{
-			routeList.add(new Route(i, routeName.get(i)));
+			ArrayList<Locomotive> locoRoute=new ArrayList<>();
 			for (int j=0;j<locos.get(routeName.get(i)).size();j++) {
-				locoList.add(new Locomotive(locoList.size(), locos.get(routeName.get(i)).get(j), i));
+				Locomotive locomotive=new Locomotive(locoList.size(), locos.get(routeName.get(i)).get(j), i);
+				locoList.add(locomotive);
+				locoRoute.add(locomotive);
 			}
+			routeList.add(new Route(i, routeName.get(i),locoRoute));
 		}
 		for (int i=0;i<weather.size();i++) {
 			weatherList.add(new Weather(i, weather.get(i)));
@@ -90,5 +96,18 @@ public class Main {
 		Route route=main.getRoute(loco);
 		System.out.println(route.getName()+": "+loco.getName());
 		
+	}
+	public void selectRoute(boolean isSelected,Route route) {
+		//TODO set json that unselected route
+		File file=new File(documentFile+"/randomtsw/"+SaveFileName.ROUTE);
+		if (!file.exists())
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		if (isSelected==false) {
+			
+		}
 	}
 }
