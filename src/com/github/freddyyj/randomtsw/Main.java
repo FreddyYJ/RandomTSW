@@ -1,6 +1,8 @@
 package com.github.freddyyj.randomtsw;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,13 +10,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObjectBuilder;
+
+import com.github.freddyyj.randomtsw.config.SaveLoco;
+
 import javafx.application.Application;
 
 public class Main {
 	private ArrayList<Locomotive> locoList;
 	private ArrayList<Route> routeList;
 	private ArrayList<Weather> weatherList;
-	private String documentFile=javax.swing.filechooser.FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
+	private SaveLoco unselectedLocos;
 	public static void main(String[] args) {
 		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
 	}
@@ -43,6 +51,8 @@ public class Main {
 		for (int i=0;i<weather.size();i++) {
 			weatherList.add(new Weather(i, weather.get(i)));
 		}
+		
+		unselectedLocos=new SaveLoco(routeList);
 	}
 	public Locomotive getRandomLocomotive()
 	{
@@ -99,14 +109,8 @@ public class Main {
 	}
 	public void selectRoute(boolean isSelected,Route route) {
 		//TODO set json that unselected route
-		File file=new File(documentFile+"/randomtsw/"+SaveFileName.ROUTE);
-		if (!file.exists())
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		if (isSelected==false) {
+			JsonObjectBuilder builder=Json.createObjectBuilder();
 			
 		}
 	}
