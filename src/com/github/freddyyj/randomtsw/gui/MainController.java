@@ -34,6 +34,7 @@ public class MainController {
 	private List<Node> routes;
 	private List<Node> weathers;
 	private VBox currentRoute;
+	private CheckBox currentBox;
 	private Main core;
 	private File saveFile;
 	public MainController() {}
@@ -82,6 +83,12 @@ public class MainController {
 	}
 	@FXML
 	protected void onCheckRouteClick(MouseEvent e) {
+		if (currentBox==null) {
+			currentBox=(CheckBox) routes.get(0);
+		}
+		if (e.getSource() instanceof CheckBox) {
+			currentBox=(CheckBox) e.getSource();
+		}
 		if(currentRoute==null) {
 			currentRoute=getLocoBoxByID("checkCSX");
 		}
@@ -137,15 +144,18 @@ public class MainController {
 	}
 	@FXML
 	protected void onCheckLocoSelect(ActionEvent e) {
-		//TODO save unselected locos at save file
-		e.getSource();
+		if(e.getSource() instanceof CheckBox) {
+			CheckBox selectedLoco=(CheckBox) e.getSource();
+			core.selectLocomotive(selectedLoco.isSelected(), selectedLoco.getText(),currentBox.getText());
+		}
 	}
 	@FXML
 	protected void onCheckRouteSelect(ActionEvent e) {
-		//TODO save unselected routes at save file
-		CheckBox selectedRoute;
-		if(e.getSource() instanceof CheckBox)
-			selectedRoute=(CheckBox) e.getSource();
+		if(e.getSource() instanceof CheckBox) {
+			CheckBox selectedRoute=(CheckBox) e.getSource();
+			core.selectRoute(selectedRoute.isSelected(), selectedRoute.getText());
+		}
+		
 	}
 	protected VBox getLocoBoxByID(String routeId) {
 		List<Node> loco=boxLoco.getChildren();

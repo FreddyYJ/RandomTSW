@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception{
+		
 		Scene scene=new Scene(FXMLLoader.load(getClass().getResource("MainDoc.fxml")),250,75);
 		primaryStage.setTitle("RandomTSW");
 		primaryStage.setScene(scene);
@@ -19,7 +20,8 @@ public class Main extends Application{
 	}
 	@Override
 	public void stop() throws Exception {
-		// TODO Save unselected checkbox
+		com.github.freddyyj.randomtsw.Main core=com.github.freddyyj.randomtsw.Main.getInstance();
+		core.close();
 		super.stop();
 	}
 }

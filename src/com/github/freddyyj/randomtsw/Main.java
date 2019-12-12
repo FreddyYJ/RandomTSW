@@ -1,18 +1,10 @@
 package com.github.freddyyj.randomtsw;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
-
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObjectBuilder;
 
 import com.github.freddyyj.randomtsw.config.SaveLoco;
 
@@ -23,8 +15,13 @@ public class Main {
 	private ArrayList<Route> routeList;
 	private ArrayList<Weather> weatherList;
 	private SaveLoco unselectedLocos;
+	private static Main core;
 	public static void main(String[] args) {
 		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
+		
+	}
+	public static Main getInstance() {
+		return core;
 	}
 	@Deprecated
 	public Main()
@@ -34,9 +31,15 @@ public class Main {
 	}
 	public Main(Vector<String> routeName,HashMap<String, List<String>> locos,Vector<String> weather)
 	{
+		//TODO init controller with save file
+		unselectedLocos=new SaveLoco(routeList,this);
+		core=this;
+
 		locoList=new ArrayList<>();
 		routeList=new ArrayList<>();
 		weatherList=new ArrayList<>();
+		ArrayList<String> unselectedRoute=unselectedLocos.getRoute();
+		ArrayList<String> unselectedLoco;
 		
 		for (int i=0;i<routeName.size();i++)
 		{
@@ -52,7 +55,6 @@ public class Main {
 			weatherList.add(new Weather(i, weather.get(i)));
 		}
 		
-		unselectedLocos=new SaveLoco(routeList);
 	}
 	public Locomotive getRandomLocomotive()
 	{
@@ -99,6 +101,13 @@ public class Main {
 		}
 		return null;
 	}
+	public Locomotive getLocomotive(String name,String routeName) {
+		for (int i=0;i<locoList.size();i++) {
+			if (locoList.get(i).getName().equals(name) && routeList.get(locoList.get(i).getRoute()).getName().equals(routeName))
+				return locoList.get(i);
+		}
+		return null;
+	}
 	@Deprecated
 	public void printRandomTSW(String[] args) {
 		Main main=new Main();
@@ -107,11 +116,26 @@ public class Main {
 		System.out.println(route.getName()+": "+loco.getName());
 		
 	}
-	public void selectRoute(boolean isSelected,Route route) {
-		//TODO set json that unselected route
+	public void selectRoute(boolean isSelected,String routeName) {
+		Route route=getRoute(routeName);
 		if (isSelected==false) {
-			JsonObjectBuilder builder=Json.createObjectBuilder();
-			
+			unselectedLocos.add(route);
 		}
+		else {
+			unselectedLocos.remove(route);
+		}
+	}
+	public void selectLocomotive(boolean isSelected,String locoName,String routeName) {
+		Locomotive loco=getLocomotive(locoName, routeName);
+		if (isSelected==false) {
+			unselectedLocos.add(loco);
+		}
+		else {
+			unselectedLocos.remove(loco);
+		}
+
+	}
+	public void close() {
+		unselectedLocos.save();
 	}
 }
