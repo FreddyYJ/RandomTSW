@@ -166,7 +166,7 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkGWR66" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66">
+                        <CheckBox fx:id="checkGWR66" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66 EWS/DBS">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -411,12 +411,37 @@
                   </VBox>
                   <VBox fx:id="boxECWLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkECW377" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 377/4">
+                        <CheckBox fx:id="checkECW377" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 377/4 SN">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkECW66" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66 EWS">
+                        <CheckBox fx:id="checkECW66" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66 EWS/DBS">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkECW47" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 47/4 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkECW45" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 45/1 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkECW31" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 31/1 BLU">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkECW37" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 37/5 RF">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkECW40" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 40 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
