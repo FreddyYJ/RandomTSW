@@ -431,82 +431,82 @@
          <content>
             <VBox fx:id="boxWeather" prefHeight="200.0">
                <children>
-                  <CheckBox fx:id="checkSpringClear" mnemonicParsing="false" selected="true" text="Spring Clear">
+                  <CheckBox fx:id="checkSpringClear" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Spring Clear">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkSpringCloudy" mnemonicParsing="false" selected="true" text="Spring Cloudy">
+                  <CheckBox fx:id="checkSpringCloudy" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Spring Cloudy">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkSpringRain" mnemonicParsing="false" selected="true" text="Spring Rain">
+                  <CheckBox fx:id="checkSpringRain" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Spring Rain">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkSummerClear" mnemonicParsing="false" selected="true" text="Summer Clear">
+                  <CheckBox fx:id="checkSummerClear" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Summer Clear">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkSummerCloudy" mnemonicParsing="false" selected="true" text="Summer Cloudy">
+                  <CheckBox fx:id="checkSummerCloudy" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Summer Cloudy">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkSummerFog" mnemonicParsing="false" selected="true" text="Summer Fog">
+                  <CheckBox fx:id="checkSummerFog" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Summer Fog">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkSummerRain" mnemonicParsing="false" selected="true" text="Summer Rain">
+                  <CheckBox fx:id="checkSummerRain" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Summer Rain">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkAutumnClear" mnemonicParsing="false" selected="true" text="Autumn Clear">
+                  <CheckBox fx:id="checkAutumnClear" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Autumn Clear">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkAutumnCloudy" mnemonicParsing="false" selected="true" text="Autumn Cloudy">
+                  <CheckBox fx:id="checkAutumnCloudy" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Autumn Cloudy">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkAutumnMist" mnemonicParsing="false" selected="true" text="Autumn Mist">
+                  <CheckBox fx:id="checkAutumnMist" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Autumn Mist">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkAutumnDrizzle" mnemonicParsing="false" selected="true" text="Autumn Drizzle">
+                  <CheckBox fx:id="checkAutumnDrizzle" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Autumn Drizzle">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkWinterFog" mnemonicParsing="false" selected="true" text="Winter Fog">
+                  <CheckBox fx:id="checkWinterFog" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Winter Fog">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkWinterBlizzard" mnemonicParsing="false" selected="true" text="Winter Blizzard">
+                  <CheckBox fx:id="checkWinterBlizzard" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Winter Blizzard">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkWinterSnow" mnemonicParsing="false" selected="true" text="Winter Snow">
+                  <CheckBox fx:id="checkWinterSnow" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Winter Snow">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkWinterClear" mnemonicParsing="false" selected="true" text="Winter Clear">
+                  <CheckBox fx:id="checkWinterClear" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Winter Clear">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>
                   </CheckBox>
-                  <CheckBox fx:id="checkWinterCloudy" mnemonicParsing="false" selected="true" text="Winter Cloudy">
+                  <CheckBox fx:id="checkWinterCloudy" mnemonicParsing="false" onAction="#onCheckWeatherSelect" selected="true" text="Winter Cloudy">
                      <padding>
                         <Insets left="5.0" top="5.0" />
                      </padding>

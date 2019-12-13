@@ -31,7 +31,6 @@ public class Main {
 	}
 	public Main(Vector<String> routeName,HashMap<String, List<String>> locos,Vector<String> weather)
 	{
-		unselectedLocos=new SaveLoco(routeList,this);
 		core=this;
 
 		locoList=new ArrayList<>();
@@ -52,6 +51,8 @@ public class Main {
 			weatherList.add(new Weather(i, weather.get(i)));
 		}
 		
+		unselectedLocos=new SaveLoco(routeList,this);
+
 	}
 	public Locomotive getRandomLocomotive()
 	{
@@ -105,6 +106,14 @@ public class Main {
 		}
 		return null;
 	}
+	public Weather getWeather(String name) {
+		for (int i=0;i<weatherList.size();i++) {
+			if (weatherList.get(i).getName().equals(name)) {
+				return weatherList.get(i);
+			}
+		}
+		return null;
+	}
 	@Deprecated
 	public void printRandomTSW(String[] args) {
 		Main main=new Main();
@@ -132,6 +141,16 @@ public class Main {
 		}
 
 	}
+	public void selectWeather(boolean isSelected,String weatherName) {
+		Weather weather=getWeather(weatherName);
+		if (isSelected==false) {
+			unselectedLocos.add(weather);
+		}
+		else {
+			unselectedLocos.remove(weather);
+		}
+
+	}
 	public ArrayList<Route> getUnselectedRoute(){
 		ArrayList<Route> routes=new ArrayList<>();
 		ArrayList<String> routeStrings=unselectedLocos.getRoute();
@@ -153,6 +172,14 @@ public class Main {
 			locos.add(locoList);
 		}
 		return locos;
+	}
+	public ArrayList<Weather> getUnselectedWeather(){
+		ArrayList<Weather> weathers=new ArrayList<>();
+		ArrayList<String> weatherStrings=unselectedLocos.getWeather();
+		for (int i=0;i<weatherStrings.size();i++) {
+			weathers.add(getWeather(weatherStrings.get(i)));
+		}
+		return weathers;
 	}
 	public void close() {
 		unselectedLocos.save();

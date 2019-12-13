@@ -1,7 +1,5 @@
 package com.github.freddyyj.randomtsw.gui;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +13,6 @@ import com.github.freddyyj.randomtsw.Weather;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -83,6 +79,14 @@ public class MainController {
 
 			}
 		}
+		
+		ArrayList<Weather> unselectedWeathers=core.getUnselectedWeather();
+		for (int i=0;i<this.weathers.size();i++) {
+			if (unselectedWeathers.contains(core.getWeather(((CheckBox)this.weathers.get(i)).getText()))) {
+				((CheckBox) this.weathers.get(i)).setSelected(false);
+			}
+		}
+
 	}
 	@FXML
 	protected void onCheckRouteClick(MouseEvent e) {
@@ -159,6 +163,14 @@ public class MainController {
 			core.selectRoute(selectedRoute.isSelected(), selectedRoute.getText());
 		}
 		
+	}
+	@FXML
+	protected void onCheckWeatherSelect(ActionEvent e) {
+		if(e.getSource() instanceof CheckBox) {
+			CheckBox selectedWeather=(CheckBox) e.getSource();
+			core.selectWeather(selectedWeather.isSelected(), selectedWeather.getText());
+		}
+
 	}
 	protected VBox getLocoBoxByID(String routeId) {
 		List<Node> loco=boxLoco.getChildren();

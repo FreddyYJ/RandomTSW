@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -19,6 +18,7 @@ import javax.json.JsonWriter;
 import com.github.freddyyj.randomtsw.Locomotive;
 import com.github.freddyyj.randomtsw.Main;
 import com.github.freddyyj.randomtsw.Route;
+import com.github.freddyyj.randomtsw.Weather;
 
 public class SaveLoco {
 	private JsonObject object;
@@ -43,6 +43,7 @@ public class SaveLoco {
 				for (int i=0;i<routes.size();i++) {
 					builder.add(routes.get(i).getName(),Json.createArrayBuilder());
 				}
+				builder.add("weather", Json.createArrayBuilder());
 				
 				object=builder.build();
 				FileOutputStream writer=new FileOutputStream(saveFile);
@@ -82,6 +83,15 @@ public class SaveLoco {
 		return locoStrings;
 
 	}
+	public ArrayList<String> getWeather(){
+		JsonArray weatherArray= (JsonArray) object.get("weather");
+		ArrayList<String> weatherStrings=new ArrayList<>();
+		for (int i=0;i<weatherArray.size();i++) {
+			weatherStrings.add(weatherArray.getString(i));
+		}
+		return weatherStrings;
+
+	}
 	public void add(Route route) {
 		JsonArray routeArray= (JsonArray) object.get("route");
 		JsonArrayBuilder builder=Json.createArrayBuilder(routeArray);
@@ -102,6 +112,17 @@ public class SaveLoco {
 			object=objectBuilder.build();
 		}
 	}
+	public void add(Weather weather) {
+		JsonArray weatherArray= (JsonArray) object.get("weather");
+		JsonArrayBuilder builder=Json.createArrayBuilder(weatherArray);
+		if (find(weatherArray, weather.getName())==-1) {
+			builder.add(weather.getName());
+			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
+			objectBuilder.add("weather", builder);
+			object=objectBuilder.build();
+		}
+
+	}
 	public void remove(Route route) {
 		JsonArray routeArray= (JsonArray) object.get("route");
 		JsonArrayBuilder builder=Json.createArrayBuilder(routeArray);
@@ -119,6 +140,16 @@ public class SaveLoco {
 			builder.remove(find(locoArray, loco.getName()));
 			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
 			objectBuilder.add(core.getRoute(loco).getName(), builder);
+			object=objectBuilder.build();
+		}
+	}
+	public void remove(Weather weather) {
+		JsonArray weatherArray= (JsonArray) object.get("weather");
+		JsonArrayBuilder builder=Json.createArrayBuilder(weatherArray);
+		if (find(weatherArray, weather.getName())!=-1) {
+			builder.remove(find(weatherArray, weather.getName()));
+			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
+			objectBuilder.add("weather", builder);
 			object=objectBuilder.build();
 		}
 	}
