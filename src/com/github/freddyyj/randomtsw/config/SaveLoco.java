@@ -66,19 +66,20 @@ public class SaveLoco {
 	}
 	public ArrayList<String> getRoute(){
 		JsonArray routeArray= (JsonArray) object.get("route");
-		String[] strings= (String[]) routeArray.toArray();
-		ArrayList<String> list=new ArrayList<String>();
-		Collections.addAll(list, strings);
+		ArrayList<String> routeStrings=new ArrayList<>();
+		for (int i=0;i<routeArray.size();i++) {
+			routeStrings.add(routeArray.getString(i));
+		}
+		return routeStrings;
 		
-		return list;
 	}
 	public ArrayList<String> getLocomotive(Route route){
-		JsonArray routeArray= (JsonArray) object.get(route.getName());
-		String[] strings= (String[]) routeArray.toArray();
-		ArrayList<String> list=new ArrayList<String>();
-		Collections.addAll(list, strings);
-		
-		return list;
+		JsonArray locoArray= (JsonArray) object.get(route.getName());
+		ArrayList<String> locoStrings=new ArrayList<>();
+		for (int i=0;i<locoArray.size();i++) {
+			locoStrings.add(locoArray.getString(i));
+		}
+		return locoStrings;
 
 	}
 	public void add(Route route) {

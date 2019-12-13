@@ -2,6 +2,7 @@ package com.github.freddyyj.randomtsw.gui;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
@@ -23,7 +24,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class MainController {
-	public static final String SAVEFILE_NAME="config.json";
 	@FXML private VBox boxRoute;
 	@FXML private Pane boxLoco;
 	@FXML private VBox boxWeather;
@@ -36,7 +36,6 @@ public class MainController {
 	private VBox currentRoute;
 	private CheckBox currentBox;
 	private Main core;
-	private File saveFile;
 	public MainController() {}
 	@FXML
 	private void initialize() {
@@ -68,18 +67,22 @@ public class MainController {
 			weather.add(((CheckBox)weathers.get(i)).getText());
 		}
 		core=new Main(routes,locos,weather);
-		
-		saveFile=new File(SAVEFILE_NAME);
-		if (!saveFile.exists())
-			try {
-				saveFile.createNewFile();
-			} catch (IOException e) {
-				Alert alert=new Alert(AlertType.ERROR);
-				alert.setContentText("Error at creating config file:\n"+e.getMessage());
-				alert.setTitle("Error at config");
-				alert.show();
-				System.exit(1);
+		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
+		for (int i=0;i<this.routes.size();i++) {
+			if (unselectedRoutes.contains(core.getRoute(((CheckBox)this.routes.get(i)).getText()))) {
+				((CheckBox) this.routes.get(i)).setSelected(false);
 			}
+		}
+		
+		ArrayList<ArrayList<Locomotive>> unselectedLocos=core.getUnselectedLoco();
+		for (int i=0;i<unselectedLocos.size();i++) {
+			for (int j=0;j<this.locos.get(i).size();j++) {
+				if (unselectedLocos.get(i).contains(core.getLocomotive(((CheckBox)this.locos.get(i).get(j)).getText(),((CheckBox)this.routes.get(i)).getText()))) {
+					((CheckBox) this.locos.get(i).get(j)).setSelected(false);
+				}
+
+			}
+		}
 	}
 	@FXML
 	protected void onCheckRouteClick(MouseEvent e) {

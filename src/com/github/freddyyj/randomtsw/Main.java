@@ -31,15 +31,12 @@ public class Main {
 	}
 	public Main(Vector<String> routeName,HashMap<String, List<String>> locos,Vector<String> weather)
 	{
-		//TODO init controller with save file
 		unselectedLocos=new SaveLoco(routeList,this);
 		core=this;
 
 		locoList=new ArrayList<>();
 		routeList=new ArrayList<>();
 		weatherList=new ArrayList<>();
-		ArrayList<String> unselectedRoute=unselectedLocos.getRoute();
-		ArrayList<String> unselectedLoco;
 		
 		for (int i=0;i<routeName.size();i++)
 		{
@@ -134,6 +131,28 @@ public class Main {
 			unselectedLocos.remove(loco);
 		}
 
+	}
+	public ArrayList<Route> getUnselectedRoute(){
+		ArrayList<Route> routes=new ArrayList<>();
+		ArrayList<String> routeStrings=unselectedLocos.getRoute();
+		for (int i=0;i<routeStrings.size();i++) {
+			routes.add(getRoute(routeStrings.get(i)));
+		}
+		return routes;
+	}
+	public ArrayList<ArrayList<Locomotive>> getUnselectedLoco(){
+		ArrayList<ArrayList<Locomotive>> locos=new ArrayList<>();
+		ArrayList<String> locoStrings;
+		ArrayList<Locomotive> locoList;
+		for (int i=0;i<routeList.size();i++) {
+			locoList=new ArrayList<>();
+			locoStrings=unselectedLocos.getLocomotive(routeList.get(i));
+			for (int j=0;j<locoStrings.size();j++) {
+				locoList.add(getLocomotive(locoStrings.get(j), routeList.get(i).getName()));
+			}
+			locos.add(locoList);
+		}
+		return locos;
 	}
 	public void close() {
 		unselectedLocos.save();

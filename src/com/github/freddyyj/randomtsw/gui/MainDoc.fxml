@@ -127,27 +127,27 @@
                   </VBox>
                   <VBox fx:id="boxNECLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkNECGP38" mnemonicParsing="false" selected="true" text="GP38-2 CSX">
+                        <CheckBox fx:id="checkNECGP38" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 CSX">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNECGP40" mnemonicParsing="false" selected="true" text="GP40-2 CSX">
+                        <CheckBox fx:id="checkNECGP40" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP40-2 CSX">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNECACS64" mnemonicParsing="false" selected="true" text="ACS-64">
+                        <CheckBox fx:id="checkNECACS64" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="ACS-64">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNECSW1000R" mnemonicParsing="false" selected="true" text="SW1000R V">
+                        <CheckBox fx:id="checkNECSW1000R" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="SW1000R V">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNECEX" mnemonicParsing="false" selected="true" text="Ex-Metroliner Cab Car">
+                        <CheckBox fx:id="checkNECEX" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Ex-Metroliner Cab Car">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -156,17 +156,17 @@
                   </VBox>
                   <VBox fx:id="boxGWRLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkGWR43" mnemonicParsing="false" selected="true" text="BR Class 43 HST">
+                        <CheckBox fx:id="checkGWR43" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 43 HST">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkGWR166" mnemonicParsing="false" selected="true" text="BR Class 166">
+                        <CheckBox fx:id="checkGWR166" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 166">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkGWR66" mnemonicParsing="false" selected="true" text="BR Class 66">
+                        <CheckBox fx:id="checkGWR66" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -175,17 +175,17 @@
                   </VBox>
                   <VBox fx:id="boxRTLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkRT1442" mnemonicParsing="false" selected="true" text="DB BR 1442 'Talent 2'">
+                        <CheckBox fx:id="checkRT1442" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 1442 'Talent 2'">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRT182" mnemonicParsing="false" selected="true" text="DB BR 182">
+                        <CheckBox fx:id="checkRT182" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 182">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRT766" mnemonicParsing="false" selected="true" text="DB BR 766.2 DBpbzfa">
+                        <CheckBox fx:id="checkRT766" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 766.2 DBpbzfa">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -194,32 +194,32 @@
                   </VBox>
                   <VBox fx:id="boxWSRLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkWSR09" mnemonicParsing="false" selected="true" text="BR Class 09 GRN">
+                        <CheckBox fx:id="checkWSR09" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 09 GRN">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkWSR47" mnemonicParsing="false" selected="true" text="BR Class 47 GRN">
+                        <CheckBox fx:id="checkWSR47" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 47 GRN">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkWSR33" mnemonicParsing="false" selected="true" text="BR Class 33 GRN">
+                        <CheckBox fx:id="checkWSR33" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 33 GRN">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkWSR52" mnemonicParsing="false" selected="true" text="BR Class 52 MAR 'Western'">
+                        <CheckBox fx:id="checkWSR52" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 52 MAR 'Western'">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkWSR08" mnemonicParsing="false" selected="true" text="BR Class 08 BLU">
+                        <CheckBox fx:id="checkWSR08" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 08 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkWSR31" mnemonicParsing="false" selected="true" text="BR Class 31 BLU">
+                        <CheckBox fx:id="checkWSR31" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 31 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -228,27 +228,27 @@
                   </VBox>
                   <VBox fx:id="boxRSNLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkRSN767" mnemonicParsing="false" selected="true" text="DB BR 767.2 DABpbzfa">
+                        <CheckBox fx:id="checkRSN767" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 767.2 DABpbzfa">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRSN185" mnemonicParsing="false" selected="true" text="DB BR 185.2">
+                        <CheckBox fx:id="checkRSN185" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 185.2">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRSN182" mnemonicParsing="false" selected="true" text="DB BR 182">
+                        <CheckBox fx:id="checkRSN182" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 182">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRSN143" mnemonicParsing="false" selected="true" text="DB BR 143">
+                        <CheckBox fx:id="checkRSN143" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 143">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRSN155" mnemonicParsing="false" selected="true" text="DB BR 155">
+                        <CheckBox fx:id="checkRSN155" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 155">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -257,7 +257,7 @@
                   </VBox>
                   <VBox fx:id="boxLIRRLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkLIRRM7" mnemonicParsing="false" selected="true" text="M7 LIRR">
+                        <CheckBox fx:id="checkLIRRM7" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="M7 LIRR">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -266,27 +266,27 @@
                   </VBox>
                   <VBox fx:id="boxNTPLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkNTP101" mnemonicParsing="false" selected="true" text="BR Class 101 BLG">
+                        <CheckBox fx:id="checkNTP101" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 101 BLG">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNTP45" mnemonicParsing="false" selected="true" text="BR Class 45/1 BLU">
+                        <CheckBox fx:id="checkNTP45" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 45/1 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNTP47" mnemonicParsing="false" selected="true" text="BR Class 47/4 BLU">
+                        <CheckBox fx:id="checkNTP47" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 47/4 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNTP40" mnemonicParsing="false" selected="true" text="BR Class 40 BLU">
+                        <CheckBox fx:id="checkNTP40" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 40 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkNTP08" mnemonicParsing="false" selected="true" text="BR Class 08 BLU">
+                        <CheckBox fx:id="checkNTP08" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 08 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -295,32 +295,32 @@
                   </VBox>
                   <VBox fx:id="boxMSBLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkMSB766" mnemonicParsing="false" selected="true" text="DB BR 766.2 DBpbzfa">
+                        <CheckBox fx:id="checkMSB766" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 766.2 DBpbzfa">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkMSB185" mnemonicParsing="false" selected="true" text="DB BR 185.2">
+                        <CheckBox fx:id="checkMSB185" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 185.2">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox id="checkMSB182" mnemonicParsing="false" selected="true" text="DB BR 182">
+                        <CheckBox fx:id="checkMSB182" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 182">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox id="checkMSB143" mnemonicParsing="false" selected="true" text="DB BR 143">
+                        <CheckBox fx:id="checkMSB143" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 143">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox id="checkMSB155" mnemonicParsing="false" selected="true" text="DB BR 155">
+                        <CheckBox fx:id="checkMSB155" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 155">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox id="checkMSB146" mnemonicParsing="false" selected="true" text="DB BR 146.2">
+                        <CheckBox fx:id="checkMSB146" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 146.2">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -329,22 +329,22 @@
                   </VBox>
                   <VBox fx:id="boxTVLLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkTVL101" mnemonicParsing="false" selected="true" text="BR Class 101 GRN">
+                        <CheckBox fx:id="checkTVL101" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 101 GRN">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkTVL37" mnemonicParsing="false" selected="true" text="BR Class 37/5 RF">
+                        <CheckBox fx:id="checkTVL37" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 37/5 RF">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkTVL08" mnemonicParsing="false" selected="true" text="BR Class 08 BLU">
+                        <CheckBox fx:id="checkTVL08" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 08 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkTVL31" mnemonicParsing="false" selected="true" text="BR Class 31 BLU">
+                        <CheckBox fx:id="checkTVL31" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 31 BLU">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -353,17 +353,17 @@
                   </VBox>
                   <VBox fx:id="boxPCLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkPCF40" mnemonicParsing="false" selected="true" text="F40PH-2CAT CT97">
+                        <CheckBox fx:id="checkPCF40" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="F40PH-2CAT CT97">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkPCGallery" mnemonicParsing="false" selected="true" text="Gallery Cab Car CT97">
+                        <CheckBox fx:id="checkPCGallery" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Gallery Cab Car CT97">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkPCGP38" mnemonicParsing="false" selected="true" text="GP38-2 UP">
+                        <CheckBox fx:id="checkPCGP38" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 UP">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -372,37 +372,37 @@
                   </VBox>
                   <VBox fx:id="boxRROLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkRRO1855" mnemonicParsing="false" selected="true" text="MRCE BR 185.5">
+                        <CheckBox fx:id="checkRRO1855" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MRCE BR 185.5">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRRO422" mnemonicParsing="false" selected="true" text="DB BR 422">
+                        <CheckBox fx:id="checkRRO422" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 422">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRRO143" mnemonicParsing="false" selected="true" text="DB BR 143">
+                        <CheckBox fx:id="checkRRO143" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 143">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRRO1852" mnemonicParsing="false" selected="true" text="DB BR 185.2">
+                        <CheckBox fx:id="checkRRO1852" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 185.2">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRRO146" mnemonicParsing="false" selected="true" text="DB BR 146.2">
+                        <CheckBox fx:id="checkRRO146" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 146.2">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRRO182" mnemonicParsing="false" selected="true" text="DB BR 182">
+                        <CheckBox fx:id="checkRRO182" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 182">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkRRO155" mnemonicParsing="false" selected="true" text="DB BR 155">
+                        <CheckBox fx:id="checkRRO155" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 155">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -411,12 +411,12 @@
                   </VBox>
                   <VBox fx:id="boxECWLocos" disable="true" prefHeight="200.0" visible="false">
                      <children>
-                        <CheckBox fx:id="checkECW377" mnemonicParsing="false" selected="true" text="BR Class 377/4">
+                        <CheckBox fx:id="checkECW377" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 377/4">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkECW66" mnemonicParsing="false" selected="true" text="BR Class 66 EWS">
+                        <CheckBox fx:id="checkECW66" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66 EWS">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
