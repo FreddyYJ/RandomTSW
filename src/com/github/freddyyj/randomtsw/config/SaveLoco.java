@@ -159,7 +159,6 @@ public class SaveLoco {
 			JsonWriter jsonWriter=Json.createWriter(writer);
 			jsonWriter.writeObject(object);
 			jsonWriter.close();
-			System.out.println(object.toString());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
