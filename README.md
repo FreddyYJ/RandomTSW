@@ -4,6 +4,10 @@ It will help you to pick Services jobs.\
 Current Version is 0.2.0 Beta.
 
 # Changelog
+v0.3.1
+* Remove version warning for JavaFX
+* Remove standard output when closing program
+
 v0.3.0
 * Add East Coastway Routes
 * Add BR Class 377/4, 66, 47/4, 45/1, 31/1, 37/5, 40 in East Coastway route
