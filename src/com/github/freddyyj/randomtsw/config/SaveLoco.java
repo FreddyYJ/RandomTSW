@@ -154,8 +154,11 @@ public class SaveLoco {
 		}
 	}
 	public void save() {
+		this.save(documentFile+"/randomtsw.json");
+	}
+	public void save(String path) {
 		try {
-			FileOutputStream writer = new FileOutputStream(saveFile);
+			FileOutputStream writer = new FileOutputStream(path);
 			JsonWriter jsonWriter=Json.createWriter(writer);
 			jsonWriter.writeObject(object);
 			jsonWriter.close();

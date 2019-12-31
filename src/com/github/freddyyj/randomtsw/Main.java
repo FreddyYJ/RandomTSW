@@ -184,4 +184,7 @@ public class Main {
 	public void close() {
 		unselectedLocos.save();
 	}
+	public void saveAs(String path) {
+		unselectedLocos.save(path);
+	}
 }

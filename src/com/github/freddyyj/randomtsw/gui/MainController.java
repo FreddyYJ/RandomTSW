@@ -1,5 +1,6 @@
 package com.github.freddyyj.randomtsw.gui;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,23 +15,34 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class MainController {
+	@FXML private AnchorPane anchorPane;
 	@FXML private VBox boxRoute;
 	@FXML private Pane boxLoco;
 	@FXML private VBox boxWeather;
 	@FXML private TextField textPickedRoute;
 	@FXML private TextField textPickedLoco;
 	@FXML private TextField textPickedWeather;
+	@FXML private MenuItem itemSave;
+	@FXML private MenuItem itemSaveAs;
+	@FXML private MenuItem itemLoad;
+	@FXML private MenuItem itemClose;
+	@FXML private MenuItem itemAbout;
 	private List<List<Node>> locos;
 	private List<Node> routes;
 	private List<Node> weathers;
 	private VBox currentRoute;
 	private CheckBox currentBox;
+	private File currentFile;
 	private Main core;
 	public MainController() {}
 	@FXML
@@ -171,6 +183,15 @@ public class MainController {
 			core.selectWeather(selectedWeather.isSelected(), selectedWeather.getText());
 		}
 
+	}
+	@FXML
+	protected void onSaveAs(ActionEvent e) {
+		FileChooser chooser=new FileChooser();
+		chooser.setTitle("Save File as");
+		chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
+		currentFile=chooser.showSaveDialog(anchorPane.getScene().getWindow());
+		if (currentFile!=null)
+			core.saveAs(currentFile.getPath());
 	}
 	protected VBox getLocoBoxByID(String routeId) {
 		List<Node> loco=boxLoco.getChildren();

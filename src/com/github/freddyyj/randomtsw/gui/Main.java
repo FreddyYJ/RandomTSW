@@ -21,7 +21,6 @@ public class Main extends Application{
 	@Override
 	public void stop() throws Exception {
 		com.github.freddyyj.randomtsw.Main core=com.github.freddyyj.randomtsw.Main.getInstance();
-		core.close();
 		super.stop();
 	}
 }
