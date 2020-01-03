@@ -75,29 +75,7 @@ public class MainController {
 			weather.add(((CheckBox)weathers.get(i)).getText());
 		}
 		core=new Main(routes,locos,weather);
-		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
-		for (int i=0;i<this.routes.size();i++) {
-			if (unselectedRoutes.contains(core.getRoute(((CheckBox)this.routes.get(i)).getText()))) {
-				((CheckBox) this.routes.get(i)).setSelected(false);
-			}
-		}
-		
-		ArrayList<ArrayList<Locomotive>> unselectedLocos=core.getUnselectedLoco();
-		for (int i=0;i<unselectedLocos.size();i++) {
-			for (int j=0;j<this.locos.get(i).size();j++) {
-				if (unselectedLocos.get(i).contains(core.getLocomotive(((CheckBox)this.locos.get(i).get(j)).getText(),((CheckBox)this.routes.get(i)).getText()))) {
-					((CheckBox) this.locos.get(i).get(j)).setSelected(false);
-				}
-
-			}
-		}
-		
-		ArrayList<Weather> unselectedWeathers=core.getUnselectedWeather();
-		for (int i=0;i<this.weathers.size();i++) {
-			if (unselectedWeathers.contains(core.getWeather(((CheckBox)this.weathers.get(i)).getText()))) {
-				((CheckBox) this.weathers.get(i)).setSelected(false);
-			}
-		}
+		reload();
 
 	}
 	@FXML
@@ -192,6 +170,44 @@ public class MainController {
 		currentFile=chooser.showSaveDialog(anchorPane.getScene().getWindow());
 		if (currentFile!=null)
 			core.saveAs(currentFile.getPath());
+	}
+	@FXML
+	protected void onLoad(ActionEvent e) {
+		FileChooser chooser=new FileChooser();
+		chooser.setTitle("Load Save File");
+		chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
+		File file=chooser.showOpenDialog(anchorPane.getScene().getWindow());
+		if (file!=null)
+		{
+			core.reloadSaveFile(file.getPath());
+			reload();
+		}
+	}
+	public void reload() {
+		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
+		for (int i=0;i<this.routes.size();i++) {
+			if (unselectedRoutes.contains(core.getRoute(((CheckBox)this.routes.get(i)).getText()))) {
+				((CheckBox) this.routes.get(i)).setSelected(false);
+			}
+		}
+		
+		ArrayList<ArrayList<Locomotive>> unselectedLocos=core.getUnselectedLoco();
+		for (int i=0;i<unselectedLocos.size();i++) {
+			for (int j=0;j<this.locos.get(i).size();j++) {
+				if (unselectedLocos.get(i).contains(core.getLocomotive(((CheckBox)this.locos.get(i).get(j)).getText(),((CheckBox)this.routes.get(i)).getText()))) {
+					((CheckBox) this.locos.get(i).get(j)).setSelected(false);
+				}
+
+			}
+		}
+		
+		ArrayList<Weather> unselectedWeathers=core.getUnselectedWeather();
+		for (int i=0;i<this.weathers.size();i++) {
+			if (unselectedWeathers.contains(core.getWeather(((CheckBox)this.weathers.get(i)).getText()))) {
+				((CheckBox) this.weathers.get(i)).setSelected(false);
+			}
+		}
+
 	}
 	protected VBox getLocoBoxByID(String routeId) {
 		List<Node> loco=boxLoco.getChildren();

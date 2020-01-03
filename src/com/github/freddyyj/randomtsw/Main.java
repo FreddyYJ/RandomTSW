@@ -187,4 +187,7 @@ public class Main {
 	public void saveAs(String path) {
 		unselectedLocos.save(path);
 	}
+	public void reloadSaveFile(String path) {
+		unselectedLocos.reload(path);
+	}
 }

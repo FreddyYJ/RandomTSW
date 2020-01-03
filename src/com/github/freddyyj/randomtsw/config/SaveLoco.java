@@ -65,6 +65,18 @@ public class SaveLoco {
 		}
 		
 	}
+	public void reload(String path) {
+		saveFile=new File(path);
+		FileInputStream reader;
+		try {
+			reader = new FileInputStream(saveFile);
+			JsonReader jsonReader=Json.createReader(reader);
+			object=jsonReader.readObject();
+			jsonReader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	public ArrayList<String> getRoute(){
 		JsonArray routeArray= (JsonArray) object.get("route");
 		ArrayList<String> routeStrings=new ArrayList<>();
