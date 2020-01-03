@@ -169,7 +169,9 @@ public class MainController {
 		chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
 		currentFile=chooser.showSaveDialog(anchorPane.getScene().getWindow());
 		if (currentFile!=null)
+		{
 			core.saveAs(currentFile.getPath());
+		}
 	}
 	@FXML
 	protected void onLoad(ActionEvent e) {

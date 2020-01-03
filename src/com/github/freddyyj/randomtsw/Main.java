@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
+import com.github.freddyyj.randomtsw.config.Config;
 import com.github.freddyyj.randomtsw.config.SaveLoco;
 
 import javafx.application.Application;
@@ -15,6 +16,7 @@ public class Main {
 	private ArrayList<Route> routeList;
 	private ArrayList<Weather> weatherList;
 	private SaveLoco unselectedLocos;
+	private Config config;
 	private static Main core;
 	public static void main(String[] args) {
 		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
@@ -51,8 +53,12 @@ public class Main {
 			weatherList.add(new Weather(i, weather.get(i)));
 		}
 		
-		unselectedLocos=new SaveLoco(routeList,this);
-
+		config=new Config(this);
+		if (config.getConfig("DefaultSaveFilePath")==null)
+			unselectedLocos=new SaveLoco(routeList,this);
+		else {
+			unselectedLocos=new SaveLoco(routeList, this, config.getConfig("DefaultSaveFilePath"));
+		}
 	}
 	public Locomotive getRandomLocomotive()
 	{
@@ -185,9 +191,18 @@ public class Main {
 		unselectedLocos.save();
 	}
 	public void saveAs(String path) {
-		unselectedLocos.save(path);
+		setSaveFilePath(path);
+		unselectedLocos.save();
 	}
 	public void reloadSaveFile(String path) {
-		unselectedLocos.reload(path);
+		setSaveFilePath(path);
+		unselectedLocos.reload();
+	}
+	public void setSaveFilePath(String path) {
+		config.setConfig("DefaultSaveFilePath", path);
+		unselectedLocos.setFilePath(path);
+	}
+	public void saveConfig() {
+		config.save();
 	}
 }

@@ -22,12 +22,25 @@ import com.github.freddyyj.randomtsw.Weather;
 
 public class SaveLoco {
 	private JsonObject object;
-	private String documentFile=javax.swing.filechooser.FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
 	private File saveFile;
 	private Main core;
 	public SaveLoco(ArrayList<Route> routes, Main main) {
 		core=main;
-		saveFile=new File(documentFile+"/randomtsw.json");
+		JsonObjectBuilder builder=Json.createObjectBuilder();
+		
+		builder.add("route",Json.createArrayBuilder());
+		
+		for (int i=0;i<routes.size();i++) {
+			builder.add(routes.get(i).getName(),Json.createArrayBuilder());
+		}
+		builder.add("weather", Json.createArrayBuilder());
+		
+		object=builder.build();
+	}
+	public SaveLoco(ArrayList<Route> routes, Main main,String defaultPath) {
+		core=main;
+		saveFile=new File(defaultPath).getAbsoluteFile();
+		//TODO: Fix IOException for exists error
 		if (!saveFile.exists()) {
 			try {
 				saveFile.createNewFile();
@@ -65,8 +78,7 @@ public class SaveLoco {
 		}
 		
 	}
-	public void reload(String path) {
-		saveFile=new File(path);
+	public void reload() {
 		FileInputStream reader;
 		try {
 			reader = new FileInputStream(saveFile);
@@ -76,6 +88,9 @@ public class SaveLoco {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+	public void setFilePath(String path) {
+		saveFile=new File(path);
 	}
 	public ArrayList<String> getRoute(){
 		JsonArray routeArray= (JsonArray) object.get("route");
@@ -166,11 +181,11 @@ public class SaveLoco {
 		}
 	}
 	public void save() {
-		this.save(documentFile+"/randomtsw.json");
+		this.save(saveFile);
 	}
-	public void save(String path) {
+	public void save(File file) {
 		try {
-			FileOutputStream writer = new FileOutputStream(path);
+			FileOutputStream writer = new FileOutputStream(file);
 			JsonWriter jsonWriter=Json.createWriter(writer);
 			jsonWriter.writeObject(object);
 			jsonWriter.close();
