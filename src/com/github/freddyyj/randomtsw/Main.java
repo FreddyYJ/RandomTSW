@@ -203,7 +203,13 @@ public class Main {
 		unselectedLocos.setFilePath(path);
 	}
 	public String getSaveFilePath() {
-		return config.getConfig("DefaultSaveFilePath");
+		String path;
+		try {
+			 path=config.getConfig("DefaultSaveFilePath");
+		}catch (NullPointerException e) {
+			path=null;
+		}
+		return path;
 	}
 	public void saveConfig() {
 		config.save();

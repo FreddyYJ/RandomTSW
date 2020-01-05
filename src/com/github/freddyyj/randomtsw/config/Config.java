@@ -59,7 +59,7 @@ public class Config {
 		object=builder.build();
 	}
 	public String getConfig(String key) {
-		if (object.get(key)==JsonValue.NULL)
+		if (object.get(key)==JsonValue.NULL || !object.containsKey(key))
 			return null;
 		return object.getString(key);
 	}

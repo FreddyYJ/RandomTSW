@@ -188,7 +188,11 @@ public class MainController {
 	}
 	@FXML
 	protected void onSave(ActionEvent e) {
-		core.saveAs(core.getSaveFilePath());
+		if (core.getSaveFilePath()!=null)
+			core.saveAs(core.getSaveFilePath());
+		else {
+			onSaveAs(e);
+		}
 	}
 	public void reload() {
 		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
