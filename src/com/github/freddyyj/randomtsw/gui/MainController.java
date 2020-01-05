@@ -191,6 +191,9 @@ public class MainController {
 			if (unselectedRoutes.contains(core.getRoute(((CheckBox)this.routes.get(i)).getText()))) {
 				((CheckBox) this.routes.get(i)).setSelected(false);
 			}
+			else {
+				((CheckBox) this.routes.get(i)).setSelected(true);
+			}
 		}
 		
 		ArrayList<ArrayList<Locomotive>> unselectedLocos=core.getUnselectedLoco();
@@ -198,6 +201,9 @@ public class MainController {
 			for (int j=0;j<this.locos.get(i).size();j++) {
 				if (unselectedLocos.get(i).contains(core.getLocomotive(((CheckBox)this.locos.get(i).get(j)).getText(),((CheckBox)this.routes.get(i)).getText()))) {
 					((CheckBox) this.locos.get(i).get(j)).setSelected(false);
+				}
+				else {
+					((CheckBox) this.locos.get(i).get(j)).setSelected(true);
 				}
 
 			}
@@ -207,6 +213,9 @@ public class MainController {
 		for (int i=0;i<this.weathers.size();i++) {
 			if (unselectedWeathers.contains(core.getWeather(((CheckBox)this.weathers.get(i)).getText()))) {
 				((CheckBox) this.weathers.get(i)).setSelected(false);
+			}
+			else {
+				((CheckBox) this.weathers.get(i)).setSelected(true);
 			}
 		}
 
