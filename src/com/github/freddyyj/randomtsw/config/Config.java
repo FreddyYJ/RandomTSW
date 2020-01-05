@@ -10,6 +10,7 @@ import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonReader;
+import javax.json.JsonValue;
 import javax.json.JsonWriter;
 
 import com.github.freddyyj.randomtsw.Main;
@@ -58,6 +59,8 @@ public class Config {
 		object=builder.build();
 	}
 	public String getConfig(String key) {
+		if (object.get(key)==JsonValue.NULL)
+			return null;
 		return object.getString(key);
 	}
 	public void save() {

@@ -75,6 +75,8 @@ public class MainController {
 		}
 		core=new Main(routes,locos,weather);
 		reload();
+		
+		currentBox=(CheckBox) this.routes.get(0);
 
 	}
 	@FXML
