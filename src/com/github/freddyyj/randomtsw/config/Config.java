@@ -58,7 +58,7 @@ public class Config {
 		object=builder.build();
 	}
 	public String getConfig(String key) {
-		return object.get(key).toString();
+		return object.getString(key);
 	}
 	public void save() {
 		try {

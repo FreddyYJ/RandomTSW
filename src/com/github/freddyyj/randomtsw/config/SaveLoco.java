@@ -39,8 +39,7 @@ public class SaveLoco {
 	}
 	public SaveLoco(ArrayList<Route> routes, Main main,String defaultPath) {
 		core=main;
-		saveFile=new File(defaultPath).getAbsoluteFile();
-		//TODO: Fix IOException for exists error
+		saveFile=new File(defaultPath);
 		if (!saveFile.exists()) {
 			try {
 				saveFile.createNewFile();
