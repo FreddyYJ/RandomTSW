@@ -202,6 +202,9 @@ public class Main {
 		config.setConfig("DefaultSaveFilePath", path);
 		unselectedLocos.setFilePath(path);
 	}
+	public String getSaveFilePath() {
+		return config.getConfig("DefaultSaveFilePath");
+	}
 	public void saveConfig() {
 		config.save();
 	}

@@ -42,7 +42,6 @@ public class MainController {
 	private List<Node> weathers;
 	private VBox currentRoute;
 	private CheckBox currentBox;
-	private File currentFile;
 	private Main core;
 	public MainController() {}
 	@FXML
@@ -167,7 +166,7 @@ public class MainController {
 		FileChooser chooser=new FileChooser();
 		chooser.setTitle("Save File as");
 		chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
-		currentFile=chooser.showSaveDialog(anchorPane.getScene().getWindow());
+		File currentFile=chooser.showSaveDialog(anchorPane.getScene().getWindow());
 		if (currentFile!=null)
 		{
 			core.saveAs(currentFile.getPath());
@@ -184,6 +183,10 @@ public class MainController {
 			core.reloadSaveFile(file.getPath());
 			reload();
 		}
+	}
+	@FXML
+	protected void onSave(ActionEvent e) {
+		core.saveAs(core.getSaveFilePath());
 	}
 	public void reload() {
 		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
