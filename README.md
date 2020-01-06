@@ -11,6 +11,7 @@ v0.4.0
 * Config file at documents directory(Delete before config file: randomtsw.json in your document!)
 * Resolve error when after start program and click locos
 * Resolve error at loading invalid config
+* Update JavaFX version to 13
 
 v0.3.1
 * Remove version warning for JavaFX
