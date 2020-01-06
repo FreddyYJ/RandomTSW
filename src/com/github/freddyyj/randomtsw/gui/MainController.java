@@ -14,9 +14,11 @@ import com.github.freddyyj.randomtsw.Weather;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -199,6 +201,15 @@ public class MainController {
 	protected void onClose(ActionEvent e) {
 		Stage stage=(Stage) anchorPane.getScene().getWindow();
 		stage.close();
+	}
+	@FXML
+	protected void onHelp(ActionEvent e) {
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("Random Train Sim World");
+		alert.setHeaderText("Random picker for Train Sim World");
+		alert.setContentText("Homepage: https://github.com/FreddyYJ/RandomTrainSimWorld");
+		
+		alert.showAndWait();
 	}
 	public void reload() {
 		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
