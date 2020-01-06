@@ -4,6 +4,14 @@ It will help you to pick Services jobs.\
 Current Version is 0.3.1 Beta.
 
 # Changelog
+v0.4.0
+* Add menubar for more functions
+* Save/Load save files manually
+* You can now save/load multiple save files
+* Config file at documents directory(Delete before config file: randomtsw.json in your document!)
+* Resolve error when after start program and click locos
+* Resolve error at loading invalid config
+
 v0.3.1
 * Remove version warning for JavaFX
 * Remove standard output when closing program
