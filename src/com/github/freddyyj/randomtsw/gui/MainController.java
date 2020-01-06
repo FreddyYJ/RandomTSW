@@ -22,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 public class MainController {
@@ -193,6 +194,11 @@ public class MainController {
 		else {
 			onSaveAs(e);
 		}
+	}
+	@FXML
+	protected void onClose(ActionEvent e) {
+		Stage stage=(Stage) anchorPane.getScene().getWindow();
+		stage.close();
 	}
 	public void reload() {
 		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
