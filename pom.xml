@@ -2,7 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>FreddyYJ</groupId>
   <artifactId>RandomTSW</artifactId>
-  <version>0.3.1</version>
+  <version>0.4.0</version>
+
   <name>RandomTSW</name>
   <packaging>jar</packaging>
   <build>
@@ -52,7 +53,7 @@
    		<dependency>
 		    <groupId>org.openjfx</groupId>
 		    <artifactId>javafx-controls</artifactId>
-		    <version>11</version>
+		    <version>14-ea+6</version>
 		    <type>pom</type>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.json/javax.json-api -->
@@ -71,7 +72,7 @@
 		<dependency>
 		    <groupId>org.openjfx</groupId>
 		    <artifactId>javafx-fxml</artifactId>
-		    <version>11</version>
+		    <version>14-ea+6</version>
 		</dependency>
     </dependencies>
   

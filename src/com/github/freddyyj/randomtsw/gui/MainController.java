@@ -1,5 +1,6 @@
 package com.github.freddyyj.randomtsw.gui;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,19 +14,32 @@ import com.github.freddyyj.randomtsw.Weather;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class MainController {
+	@FXML private AnchorPane anchorPane;
 	@FXML private VBox boxRoute;
 	@FXML private Pane boxLoco;
 	@FXML private VBox boxWeather;
 	@FXML private TextField textPickedRoute;
 	@FXML private TextField textPickedLoco;
 	@FXML private TextField textPickedWeather;
+	@FXML private MenuItem itemSave;
+	@FXML private MenuItem itemSaveAs;
+	@FXML private MenuItem itemLoad;
+	@FXML private MenuItem itemClose;
+	@FXML private MenuItem itemAbout;
 	private List<List<Node>> locos;
 	private List<Node> routes;
 	private List<Node> weathers;
@@ -63,29 +77,9 @@ public class MainController {
 			weather.add(((CheckBox)weathers.get(i)).getText());
 		}
 		core=new Main(routes,locos,weather);
-		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
-		for (int i=0;i<this.routes.size();i++) {
-			if (unselectedRoutes.contains(core.getRoute(((CheckBox)this.routes.get(i)).getText()))) {
-				((CheckBox) this.routes.get(i)).setSelected(false);
-			}
-		}
+		reload();
 		
-		ArrayList<ArrayList<Locomotive>> unselectedLocos=core.getUnselectedLoco();
-		for (int i=0;i<unselectedLocos.size();i++) {
-			for (int j=0;j<this.locos.get(i).size();j++) {
-				if (unselectedLocos.get(i).contains(core.getLocomotive(((CheckBox)this.locos.get(i).get(j)).getText(),((CheckBox)this.routes.get(i)).getText()))) {
-					((CheckBox) this.locos.get(i).get(j)).setSelected(false);
-				}
-
-			}
-		}
-		
-		ArrayList<Weather> unselectedWeathers=core.getUnselectedWeather();
-		for (int i=0;i<this.weathers.size();i++) {
-			if (unselectedWeathers.contains(core.getWeather(((CheckBox)this.weathers.get(i)).getText()))) {
-				((CheckBox) this.weathers.get(i)).setSelected(false);
-			}
-		}
+		currentBox=(CheckBox) this.routes.get(0);
 
 	}
 	@FXML
@@ -169,6 +163,86 @@ public class MainController {
 		if(e.getSource() instanceof CheckBox) {
 			CheckBox selectedWeather=(CheckBox) e.getSource();
 			core.selectWeather(selectedWeather.isSelected(), selectedWeather.getText());
+		}
+
+	}
+	@FXML
+	protected void onSaveAs(ActionEvent e) {
+		FileChooser chooser=new FileChooser();
+		chooser.setTitle("Save File as");
+		chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
+		File currentFile=chooser.showSaveDialog(anchorPane.getScene().getWindow());
+		if (currentFile!=null)
+		{
+			core.saveAs(currentFile.getPath());
+		}
+	}
+	@FXML
+	protected void onLoad(ActionEvent e) {
+		FileChooser chooser=new FileChooser();
+		chooser.setTitle("Load Save File");
+		chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
+		File file=chooser.showOpenDialog(anchorPane.getScene().getWindow());
+		if (file!=null)
+		{
+			core.reloadSaveFile(file.getPath());
+			reload();
+		}
+	}
+	@FXML
+	protected void onSave(ActionEvent e) {
+		if (core.getSaveFilePath()!=null)
+			core.saveAs(core.getSaveFilePath());
+		else {
+			onSaveAs(e);
+		}
+	}
+	@FXML
+	protected void onClose(ActionEvent e) {
+		Stage stage=(Stage) anchorPane.getScene().getWindow();
+		stage.close();
+	}
+	@FXML
+	protected void onHelp(ActionEvent e) {
+		Alert alert=new Alert(AlertType.INFORMATION);
+		alert.setTitle("Random Train Sim World");
+		alert.setHeaderText("Random picker for Train Sim World");
+		alert.setContentText("Homepage: https://github.com/FreddyYJ/RandomTrainSimWorld");
+		
+		alert.showAndWait();
+	}
+	public void reload() {
+		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
+		for (int i=0;i<this.routes.size();i++) {
+			if (unselectedRoutes.contains(core.getRoute(((CheckBox)this.routes.get(i)).getText()))) {
+				((CheckBox) this.routes.get(i)).setSelected(false);
+			}
+			else {
+				((CheckBox) this.routes.get(i)).setSelected(true);
+			}
+		}
+		
+		ArrayList<ArrayList<Locomotive>> unselectedLocos=core.getUnselectedLoco();
+		for (int i=0;i<unselectedLocos.size();i++) {
+			for (int j=0;j<this.locos.get(i).size();j++) {
+				if (unselectedLocos.get(i).contains(core.getLocomotive(((CheckBox)this.locos.get(i).get(j)).getText(),((CheckBox)this.routes.get(i)).getText()))) {
+					((CheckBox) this.locos.get(i).get(j)).setSelected(false);
+				}
+				else {
+					((CheckBox) this.locos.get(i).get(j)).setSelected(true);
+				}
+
+			}
+		}
+		
+		ArrayList<Weather> unselectedWeathers=core.getUnselectedWeather();
+		for (int i=0;i<this.weathers.size();i++) {
+			if (unselectedWeathers.contains(core.getWeather(((CheckBox)this.weathers.get(i)).getText()))) {
+				((CheckBox) this.weathers.get(i)).setSelected(false);
+			}
+			else {
+				((CheckBox) this.weathers.get(i)).setSelected(true);
+			}
 		}
 
 	}
