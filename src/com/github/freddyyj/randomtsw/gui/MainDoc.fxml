@@ -391,6 +391,16 @@
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
+                              <CheckBox fx:id="checkPCMP36" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP36PH-3C CT 'Baby Bullet'">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkPCBiLevel" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Bi-Level Cab Car CT97">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
                            </children>
                         </VBox>
                         <VBox fx:id="boxRROLocos" disable="true" prefHeight="200.0" visible="false">
