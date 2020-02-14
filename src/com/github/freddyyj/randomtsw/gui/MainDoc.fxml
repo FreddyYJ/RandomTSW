@@ -391,7 +391,7 @@
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkPCMP36" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP36PH-3C CT">
+                              <CheckBox fx:id="checkPCMP36" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP36PH-3C CT 'Baby Bullet'">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
