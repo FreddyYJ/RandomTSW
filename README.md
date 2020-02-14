@@ -4,6 +4,14 @@ It will help you to pick Services jobs.\
 Current Version is 0.3.1 Beta.
 
 # Changelog
+v0.5.1
+* Change 'MP36PH-3C CT' to 'MP36PH-3C CT "Baby Bullet"'
+
+v0.5.0
+* Add new DLC 'MP36PH-3C Baby Bullet'
+* Add new loco 'MP36PH-3C CT' in Peninsula Corridor
+* Add new loco(cab car) 'Bi-Level Cab Car' in Peninsula Corridor
+
 v0.4.0
 * Add menubar for more functions
 * Save/Load save files manually
