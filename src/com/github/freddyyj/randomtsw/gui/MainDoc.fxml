@@ -116,6 +116,11 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
+                        <CheckBox fx:id="checkOSD" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Oakville Subdivision">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
                      </children>
                   </VBox>
                </content>
@@ -475,6 +480,20 @@
                                  </padding>
                               </CheckBox>
                               <CheckBox fx:id="checkECW40" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 40 BLU">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>                          
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxOSDLocos" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkOSDGP38" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="EMD GP38-2 CN">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkOSDGP9" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="EMD GP9RM CN">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
