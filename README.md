@@ -1,9 +1,17 @@
 # RandomTrainSimWorld
 It will pick random route and locomotive from Train Sim World.\
 It will help you to pick Services jobs.\
-Current Version is 0.5.1 Beta.
+Current Version is 0.5.2 Beta.\
+Delete your savefile before use new version.
 
 # Changelog
+v0.5.2
+* Add new DLC 'Oakville Subdivision'
+* Add new route 'Oakville Subdivision'
+* Add new loco 'EMD GP38-2 CN' in Oakville Subdivision
+* Add new loco 'EMD GP9RM CN' in Oakville Subdivision
+* Update Java version to 13
+
 v0.5.1
 * Change 'MP36PH-3C CT' to 'MP36PH-3C CT "Baby Bullet"'
 
