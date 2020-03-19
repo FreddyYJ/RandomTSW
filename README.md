@@ -1,10 +1,14 @@
 # RandomTrainSimWorld
 It will pick random route and locomotive from Train Sim World.\
 It will help you to pick Services jobs.\
-Current Version is 0.5.2 Beta.\
+Current Version is 0.5.3 Beta.\
 Delete your savefile before use new version.
 
 # Changelog
+v0.5.3
+* Add new DLC 'MP15DC Diesel Switcher'
+* Add new loco 'MP15DC CT' in Peninsula Corridor
+
 v0.5.2
 * Add new DLC 'Oakville Subdivision'
 * Add new route 'Oakville Subdivision'
