@@ -529,12 +529,12 @@
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkHRR425" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 146.2">
+                              <CheckBox fx:id="checkHRR425" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 425">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkHRR422" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 146.2">
+                              <CheckBox fx:id="checkHRR422" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 422">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
