@@ -102,6 +102,12 @@ public class SaveLoco {
 	}
 	public ArrayList<String> getLocomotive(Route route){
 		JsonArray locoArray= (JsonArray) object.get(route.getName());
+		if (locoArray==null) {
+			JsonObjectBuilder builder=Json.createObjectBuilder(object);
+			builder.add(route.getName(), Json.createArrayBuilder());
+			object=builder.build();
+			locoArray= (JsonArray) object.get(route.getName());
+		}
 		ArrayList<String> locoStrings=new ArrayList<>();
 		for (int i=0;i<locoArray.size();i++) {
 			locoStrings.add(locoArray.getString(i));

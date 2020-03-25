@@ -213,5 +213,6 @@ public class Main {
 	}
 	public void saveConfig() {
 		config.save();
+		unselectedLocos.save();
 	}
 }
