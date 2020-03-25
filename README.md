@@ -6,7 +6,7 @@ Delete your savefile before use new version.
 
 # Changelog
 v0.6.1
-* Fix 3 'DB BR 146.2' in Strecke Rhein-Ruhr
+* Fix 3 'DB BR 146.2' in HauptStrecke Rhein-Ruhr
 
 v0.6.0
 * Add new DLC 'HauptStrecke Rhein-Ruhr'
