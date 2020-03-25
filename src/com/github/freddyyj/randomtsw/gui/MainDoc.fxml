@@ -121,6 +121,12 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
+                        <CheckBox fx:id="checkHRR" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="HauptStrecke Rhein-Ruhr">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        
                      </children>
                   </VBox>
                </content>
@@ -500,6 +506,50 @@
                                  </padding>
                               </CheckBox>
                               <CheckBox fx:id="checkOSDGP9" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="EMD GP9RM CN">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxHRRLocos" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkHRR185" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 185.2">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR146" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 146.2">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR766" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 766.2 DBpbzfa">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR425" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 146.2">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR422" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 146.2">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR182" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 182">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR143" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 143">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR155" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 155">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
