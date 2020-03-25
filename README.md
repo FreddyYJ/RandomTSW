@@ -1,10 +1,17 @@
 # RandomTrainSimWorld
 It will pick random route and locomotive from Train Sim World.\
 It will help you to pick Services jobs.\
-Current Version is 0.5.3 Beta.\
+Current Version is 0.6.0 Beta.\
 Delete your savefile before use new version.
 
 # Changelog
+v0.6.0
+* Add new DLC 'HauptStrecke Rhein-Ruhr'
+* Add new route 'HauptStrecke Rhein-Ruhr'
+* Add new loco 'DB BR 425' in HauptStrecke Rhein-Ruhr
+* Add 7 locos 'DB BR 185.2/146.2/422/182/143/155/766.2 DBpbzfa' in HauptStrecke Rhein-Ruhr, so 8 locos in this route
+* Now you don't have to delete save file to update, new route and locos will be added in your save file automaically
+
 v0.5.3
 * Add new DLC 'MP15DC Diesel Switcher'
 * Add new loco 'MP15DC CT' in Peninsula Corridor
