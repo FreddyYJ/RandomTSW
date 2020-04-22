@@ -4,6 +4,9 @@ It will help you to pick Services jobs.\
 Current Version is 0.6.1 Beta.
 
 # Changelog
+v0.6.2
+* Add new loco 'DB BR 204' in Main-Spessart Bahn
+
 v0.6.1
 * Fix 3 'DB BR 146.2' in HauptStrecke Rhein-Ruhr
 
