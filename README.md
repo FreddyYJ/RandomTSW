@@ -6,6 +6,7 @@ Current Version is 0.6.2 Beta.
 # Changelog
 v0.6.3
 * Add new loco 'M3 LIRR' in Long Island Railroad
+
 v0.6.2
 * Add new loco 'DB BR 204' in Main-Spessart Bahn
 
