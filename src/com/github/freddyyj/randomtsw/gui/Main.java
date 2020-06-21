@@ -6,16 +6,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application{
+	static Scene scene;
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		
-		Scene scene=new Scene(FXMLLoader.load(getClass().getResource("MainDoc.fxml")),250,75);
+		scene=new Scene(FXMLLoader.load(getClass().getResource("MainDoc.fxml")),250,75);
 		primaryStage.setTitle("RandomTSW");
 		primaryStage.setScene(scene);
 		primaryStage.setWidth(500);
 		primaryStage.setHeight(400);
-		
-		
+
 		primaryStage.show();
 	}
 	@Override

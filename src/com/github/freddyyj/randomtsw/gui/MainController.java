@@ -1,10 +1,7 @@
 package com.github.freddyyj.randomtsw.gui;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 import com.github.freddyyj.randomtsw.Locomotive;
 import com.github.freddyyj.randomtsw.Main;
@@ -19,6 +16,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -81,6 +80,11 @@ public class MainController {
 		
 		currentBox=(CheckBox) this.routes.get(0);
 
+		anchorPane.sceneProperty().addListener((observableScene, oldScene, newScene)->{
+			if (oldScene==null && newScene!=null){
+				newScene.setOnKeyPressed(this::onShortcut);
+			}
+		});
 	}
 	@FXML
 	protected void onCheckRouteClick(MouseEvent e) {
@@ -100,6 +104,8 @@ public class MainController {
 		currentRoute=getLocoBoxByID(id);
 		currentRoute.setVisible(true);
 		currentRoute.setDisable(false);
+
+		textPickedRoute.setText(((CheckBox)routeBox).getText());
 	}
 	@FXML
 	protected void onRandomAll(ActionEvent e) {
@@ -119,17 +125,26 @@ public class MainController {
 	}
 	@FXML
 	protected void onRandomRoute(ActionEvent e) {
-		Route route=core.getRandomRoute();
-		while(!((CheckBox)routes.get(route.getId())).isSelected()) {
-			route=core.getRandomRoute();
+		Random random=new Random();
+		int index=random.nextInt(routes.size());
+		CheckBox selectedRoute=(CheckBox)routes.get(index);
+		while(!selectedRoute.isSelected()) {
+			index=random.nextInt(routes.size());
+			selectedRoute=(CheckBox)routes.get(index);
 		}
-		textPickedRoute.setText(route.getName());
+		currentRoute.setVisible(false);
+		currentRoute.setDisable(true);
+
+		textPickedRoute.setText(selectedRoute.getText());
+		currentRoute=getLocoBoxByID(selectedRoute.getId());
+		currentRoute.setVisible(true);
+		currentRoute.setDisable(false);
 	}
 	@FXML
 	protected void onRandomLoco(ActionEvent e) {
 		Locomotive loco=core.getRandomLocomotive(core.getRoute(getRouteByVBox(currentRoute).getText()));
 		Route route=core.getRoute(loco);
-		while(!getLocoByName(loco.getName(), route.getId()).isSelected() || !((CheckBox)routes.get(route.getId())).isSelected()) {
+		while(!getLocoByName(loco.getName(), route.getId()).isSelected()) {
 			loco=core.getRandomLocomotive(core.getRoute(getRouteByVBox(currentRoute).getText()));
 			route=core.getRoute(loco);
 		}
@@ -210,6 +225,14 @@ public class MainController {
 		alert.setContentText("Homepage: https://github.com/FreddyYJ/RandomTrainSimWorld");
 		
 		alert.showAndWait();
+	}
+	@FXML
+	protected void onShortcut(KeyEvent e){
+		if (e.isShortcutDown()){
+			if (e.getCode()== KeyCode.S){
+				onSave(null);
+			}
+		}
 	}
 	public void reload() {
 		ArrayList<Route> unselectedRoutes=core.getUnselectedRoute();
