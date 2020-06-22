@@ -4,6 +4,12 @@ It will help you to pick Services jobs.\
 Current Version is 0.7.0 Beta.\
 Download link: https://www.dropbox.com/s/4e21qfn5ozbtb7z/RandomTSW-0.7.0-jar-with-dependencies.jar?dl=0
 
+# How to install
+1. Install JDK 13 or up: https://www.oracle.com/java/technologies/javase-downloads.html
+2. Install JavaFX 13 or up: https://gluonhq.com/products/javafx/
+3. Run command: java -jar <File name>.jar
+* Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
+
 # Changelog
 v0.7.0
 * Add new loco 'BR Class 20' at Tees Valley Line and West Somerset Railway
