@@ -1,15 +1,13 @@
 package com.github.freddyyj.randomtsw;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
 
 import com.github.freddyyj.randomtsw.config.Config;
 import com.github.freddyyj.randomtsw.config.SaveLoco;
 
 import javafx.application.Application;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public class Main {
 	private ArrayList<Locomotive> locoList;
@@ -211,8 +209,8 @@ public class Main {
 		}
 		return path;
 	}
+	public boolean isSaveChanged(){return unselectedLocos.isChanged();}
 	public void saveConfig() {
 		config.save();
-		unselectedLocos.save();
 	}
 }

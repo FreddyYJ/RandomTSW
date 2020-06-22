@@ -24,6 +24,7 @@ public class SaveLoco {
 	private JsonObject object;
 	private File saveFile;
 	private Main core;
+	private boolean isChanged=false;
 	public SaveLoco(ArrayList<Route> routes, Main main) {
 		core=main;
 		JsonObjectBuilder builder=Json.createObjectBuilder();
@@ -36,6 +37,7 @@ public class SaveLoco {
 		builder.add("weather", Json.createArrayBuilder());
 		
 		object=builder.build();
+		isChanged=true;
 	}
 	public SaveLoco(ArrayList<Route> routes, Main main,String defaultPath) {
 		core=main;
@@ -84,6 +86,7 @@ public class SaveLoco {
 			JsonReader jsonReader=Json.createReader(reader);
 			object=jsonReader.readObject();
 			jsonReader.close();
+			isChanged=false;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -132,6 +135,7 @@ public class SaveLoco {
 			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
 			objectBuilder.add("route", builder);
 			object=objectBuilder.build();
+			isChanged=true;
 		}
 	}
 	public void add(Locomotive loco) {
@@ -142,6 +146,7 @@ public class SaveLoco {
 			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
 			objectBuilder.add(core.getRoute(loco).getName(), builder);
 			object=objectBuilder.build();
+			isChanged=true;
 		}
 	}
 	public void add(Weather weather) {
@@ -152,6 +157,7 @@ public class SaveLoco {
 			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
 			objectBuilder.add("weather", builder);
 			object=objectBuilder.build();
+			isChanged=true;
 		}
 
 	}
@@ -163,6 +169,7 @@ public class SaveLoco {
 			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
 			objectBuilder.add("route", builder);
 			object=objectBuilder.build();
+			isChanged=true;
 		}
 	}
 	public void remove(Locomotive loco) {
@@ -173,6 +180,7 @@ public class SaveLoco {
 			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
 			objectBuilder.add(core.getRoute(loco).getName(), builder);
 			object=objectBuilder.build();
+			isChanged=true;
 		}
 	}
 	public void remove(Weather weather) {
@@ -183,6 +191,7 @@ public class SaveLoco {
 			JsonObjectBuilder objectBuilder=Json.createObjectBuilder(object);
 			objectBuilder.add("weather", builder);
 			object=objectBuilder.build();
+			isChanged=true;
 		}
 	}
 	public void save() {
@@ -194,6 +203,7 @@ public class SaveLoco {
 			JsonWriter jsonWriter=Json.createWriter(writer);
 			jsonWriter.writeObject(object);
 			jsonWriter.close();
+			isChanged=false;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -205,5 +215,7 @@ public class SaveLoco {
 		}
 		return -1;
 	}
-	
+	public boolean isChanged(){
+		return isChanged;
+	}
 }
