@@ -7,7 +7,7 @@ Download link: https://www.dropbox.com/s/4e21qfn5ozbtb7z/RandomTSW-0.7.0-jar-wit
 # How to install
 1. Install JDK 13 or up: https://www.oracle.com/java/technologies/javase-downloads.html
 2. Install JavaFX 11 or up: https://gluonhq.com/products/javafx/
-3. Run command: java -jar <File name>.jar
+3. Run command: java -jar (File name).jar
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
