@@ -8,7 +8,7 @@ v0.7.0
 * Add new loco 'BR Class 20' at Tees Valley Line and West Somerset Railway
 * Now Warning alert is popped up when closing window
 * Add shortcut for saving(Ctrl+S)
-* Update to change locomotive list after 'Pick Route' or 'Random All'
+* Update to change locomotive list after 'Pick Route' or 'Random All', Now you can 'Pick Locomotive' right after
 
 v0.6.3
 * Add new loco 'M3 LIRR' in Long Island Railroad
