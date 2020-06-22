@@ -1,9 +1,15 @@
 # RandomTrainSimWorld
 It will pick random route and locomotive from Train Sim World.\
 It will help you to pick Services jobs.\
-Current Version is 0.6.2 Beta.
+Current Version is 0.7.0 Beta.
 
 # Changelog
+v0.7.0
+* Add new loco 'BR Class 20' at Tees Valley Line and West Somerset Railway
+* Now Warning alert is popped up when closing window
+* Add shortcut for saving(Ctrl+S)
+* Update to change locomotive list after 'Pick Route' or 'Random All'
+
 v0.6.3
 * Add new loco 'M3 LIRR' in Long Island Railroad
 
