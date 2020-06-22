@@ -139,6 +139,14 @@ public class MainController {
         textPickedRoute.setText(route.getName());
         textPickedLoco.setText(loco.getName());
         textPickedWeather.setText(weather.getName());
+
+        currentRoute.setVisible(false);
+        currentRoute.setDisable(true);
+        int id=route.getId();
+        String name=routes.get(id).getId();
+        currentRoute = getLocoBoxByID(name);
+        currentRoute.setVisible(true);
+        currentRoute.setDisable(false);
     }
 
     @FXML
