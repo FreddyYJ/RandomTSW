@@ -1,6 +1,7 @@
 # RandomTrainSimWorld
-It will pick random route and locomotive from Train Sim World.\
-It will help you to pick Services jobs.\
+It will pick random route and locomotive from Train Sim World. It can help to select routes, locomotives, or weathers.
+Select randomly route, locomotive, weather, or all.\
+Or you can see which route/locomotive DLC includes.\
 Current Version is 0.7.0 Beta.\
 Download link: https://www.dropbox.com/s/4e21qfn5ozbtb7z/RandomTSW-0.7.0-jar-with-dependencies.jar?dl=0
 
