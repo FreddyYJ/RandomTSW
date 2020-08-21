@@ -308,7 +308,12 @@ public class MainController {
         String locoId;
         String[] id = routeId.split("check");
         locoId = id[1];
-        locoId = "box" + locoId + "Locos";
+        if (locoId.endsWith("2")){
+            locoId=locoId.split("2")[0];
+            locoId = "box" + locoId + "Locos2";
+        }
+        else
+            locoId = "box" + locoId + "Locos";
         for (int i = 0; i < loco.size(); i++) {
             if (loco.get(i).getId().equals(locoId))
                 return (VBox) loco.get(i);
@@ -320,7 +325,12 @@ public class MainController {
         String id;
         id = (locoId.getId().split("box"))[1];
         id = (id.split("Locos"))[0];
-        id = "check" + id;
+        if(id.endsWith("2")){
+            id=id.split("2")[0];
+            id="check" + id+"2";
+        }
+        else
+            id = "check" + id;
         for (int i = 0; i < routes.size(); i++) {
             if (routes.get(i).getId().equals(id))
                 return (CheckBox) routes.get(i);
