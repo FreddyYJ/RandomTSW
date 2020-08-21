@@ -126,6 +126,36 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
+                        <CheckBox fx:id="checkSPG2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Sand Patch Grade (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkSFK2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Schnellfahrstrecke Köln (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkLUB2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="London Underground Bakerloo (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkHRR2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="HauptStrecke Rhein-Ruhr (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkECW2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="East Coastway (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkPC2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Peninsula Corridor (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
                         
                      </children>
                   </VBox>
@@ -571,6 +601,110 @@
                                  </padding>
                               </CheckBox>
                               <CheckBox fx:id="checkHRR155" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 155">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxSPGLocos2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkSPGGP382" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 CSX">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkSPGSD402" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="SD40-2 CSX">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkSPGAC4400CW2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="AC4400CW CSX">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxSFKLocos2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkSFK4422" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 442 'Talent 2'">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkSFK4062" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 406 ICE3M">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxLUBLocos2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkLUB19722" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="1972 Mk.II Tube Stock">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxHRRLocos2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkHRR4252" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 425">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkHRR4222" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 422">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxECWLocos2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkECW3772" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 377/4 SN">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkECW662" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66 EWS/DBS">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxPCLocos2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkPCF402" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="F40PH-2CAT CT97">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkPCGallery2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Gallery Cab Car CT97">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkPCGP382" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 UP">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkPCMP362" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP36PH-3C CT 'Baby Bullet'">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkPCBiLevel2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Bi-Level Cab Car CT97">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkPCMP152" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP15DC CT">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
