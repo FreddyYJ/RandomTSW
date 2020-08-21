@@ -54,8 +54,8 @@ public class MainController {
     private List<List<Node>> locos;
     private List<Node> routes;
     private List<Node> weathers;
-    private VBox currentRoute;
-    private CheckBox currentBox;
+    private VBox currentRoute; // Box of locos that selected
+    private CheckBox currentBox; // Route Checkbox
     private Main core;
 
     public MainController() {
@@ -165,18 +165,21 @@ public class MainController {
         currentRoute = getLocoBoxByID(selectedRoute.getId());
         currentRoute.setVisible(true);
         currentRoute.setDisable(false);
+
+        currentBox=selectedRoute;
     }
 
     @FXML
     protected void onRandomLoco(ActionEvent e) {
-        Locomotive loco = core.getRandomLocomotive(core.getRoute(getRouteByVBox(currentRoute).getText()));
-        Route route = core.getRoute(loco);
-        while (!getLocoByName(loco.getName(), route.getId()).isSelected()) {
-            loco = core.getRandomLocomotive(core.getRoute(getRouteByVBox(currentRoute).getText()));
-            route = core.getRoute(loco);
+        Random random=new Random();
+        int r=random.nextInt(currentRoute.getChildren().size());
+        CheckBox loco = (CheckBox) currentRoute.getChildren().get(r);
+        while(!loco.isSelected()){
+            r=random.nextInt(currentRoute.getChildren().size());
+            loco = (CheckBox) currentRoute.getChildren().get(r);
         }
-        textPickedRoute.setText(route.getName());
-        textPickedLoco.setText(loco.getName());
+        textPickedRoute.setText(currentBox.getText());
+        textPickedLoco.setText(loco.getText());
     }
 
     @FXML
