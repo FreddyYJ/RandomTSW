@@ -2,8 +2,6 @@
 It will pick random route and locomotive from Train Sim World. It can help to select routes, locomotives, or weathers.
 Select randomly route, locomotive, weather, or all.\
 Or you can see which route/locomotive DLC includes.\
-Current Version is 0.7.0 Beta.\
-Download link: https://www.dropbox.com/s/4e21qfn5ozbtb7z/RandomTSW-0.7.0-jar-with-dependencies.jar?dl=0
 
 # How to install
 1. Install JDK 13 or up: https://www.oracle.com/java/technologies/javase-downloads.html
@@ -12,6 +10,17 @@ Download link: https://www.dropbox.com/s/4e21qfn5ozbtb7z/RandomTSW-0.7.0-jar-wit
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
+v0.8.0: TSW2 Update
+* Add new Routes for Train Sim World 2: Sand Patch Grade, Schnellfahrstrecke Köln, London Underground Bakerloo, Haupstrecke Rhein-Ruhr, East Coastway, Peninsula Corridor
+* New TSW2 routes have (TSW2) after route name
+* Add new locos at Sand Patch Grade (TSW2): GP38-2, SD40-2, AC4400CW
+* Add new locos at Schnellfahrstrecke Köln (TSW2): BR 442, BR 406 ICE3M
+* Add new locos at London Underground Bakerloo (TSW2): 1972 Mk.II Tube Stock
+* Add new locos at Haupstrecke Rhein-Ruhr (TSW2): BR 425, BR 422
+* Add new locos at East Coastway (TSW2): BR Class 377/4, BR Class 66
+* Add new locos at Peninsula Corridor (TSW2): F40PH-2CAT, Gallery Cab Car, GP38-2, MP36PH-3C, Bi-Level Cab Car, MP15DC
+* Change logic at onRandomRoute, onRandomLoco function in gui.MainController
+
 v0.7.0
 * Add new loco 'BR Class 20' at Tees Valley Line and West Somerset Railway
 * Now Warning alert is popped up when closing window
