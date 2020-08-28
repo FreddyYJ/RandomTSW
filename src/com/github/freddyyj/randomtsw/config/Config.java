@@ -13,16 +13,12 @@ import javax.json.JsonReader;
 import javax.json.JsonValue;
 import javax.json.JsonWriter;
 
-import com.github.freddyyj.randomtsw.Main;
-
 public class Config {
 	private static final String FILE_NAME="/randomtsw.json";
 	private JsonObject object;
 	private String documentFile=javax.swing.filechooser.FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
 	private File saveFile;
-	private Main core;
-	public Config(Main main) {
-		core=main;
+	public Config() {
 		saveFile=new File(documentFile+FILE_NAME);
 		if (!saveFile.exists()) {
 			try {

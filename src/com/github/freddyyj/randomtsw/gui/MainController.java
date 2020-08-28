@@ -1,9 +1,7 @@
 package com.github.freddyyj.randomtsw.gui;
 
-import com.github.freddyyj.randomtsw.Locomotive;
+import com.github.freddyyj.randomtsw.*;
 import com.github.freddyyj.randomtsw.Main;
-import com.github.freddyyj.randomtsw.Route;
-import com.github.freddyyj.randomtsw.Weather;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -21,10 +19,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Vector;
 
 public class MainController {
     @FXML
@@ -90,7 +90,7 @@ public class MainController {
         for (int i = 0; i < weathers.size(); i++) {
             weather.add(((CheckBox) weathers.get(i)).getText());
         }
-        core = new Main(routes, locos, weather);
+        core=Main.getInstance();
         reload();
 
         currentBox = (CheckBox) this.routes.get(0);
@@ -100,6 +100,30 @@ public class MainController {
                 newScene.setOnKeyPressed(this::onShortcut);
             }
         });
+    }
+    public ArrayList<String> getRouteList(){
+        ArrayList<String> route=new ArrayList<>();
+        for (int i=0;i<routes.size();i++){
+            route.add(((CheckBox)routes.get(i)).getText());
+        }
+        return route;
+    }
+    public ArrayList<ArrayList<String>> getLocoList(){
+        ArrayList<ArrayList<String>> loco=new ArrayList<>();
+        for (int i=0;i<locos.size();i++){
+            loco.add(new ArrayList<>());
+            for (int j=0;j<locos.get(i).size();j++){
+                loco.get(i).add(((CheckBox)locos.get(i).get(j)).getText());
+            }
+        }
+        return loco;
+    }
+    public ArrayList<String> getWeather(){
+        ArrayList<String> weather=new ArrayList<>();
+        for (int i=0;i<weathers.size();i++){
+            weather.add(((CheckBox)weathers.get(i)).getText());
+        }
+        return weather;
     }
 
     @FXML
@@ -151,8 +175,8 @@ public class MainController {
 
     @FXML
     protected void onRandomRoute(ActionEvent e) {
-        Random random = new Random();
-        int index = random.nextInt(routes.size());
+        Random random=Random.getInstance();
+        String selected=random.randomRoute()
         CheckBox selectedRoute = (CheckBox) routes.get(index);
         while (!selectedRoute.isSelected()) {
             index = random.nextInt(routes.size());

@@ -14,7 +14,7 @@ import java.util.Optional;
 public class Main extends Application{
 	static Scene scene;
 	static Stage stage;
-	private MainController controller;
+	public static MainController controller;
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		FXMLLoader loader=new FXMLLoader(getClass().getResource("MainDoc.fxml"));

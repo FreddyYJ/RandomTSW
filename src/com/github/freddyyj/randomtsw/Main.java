@@ -6,86 +6,89 @@ import com.github.freddyyj.randomtsw.config.Config;
 import com.github.freddyyj.randomtsw.config.SaveLoco;
 
 import javafx.application.Application;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import org.junit.Test;
 
 public class Main {
-	private ArrayList<Locomotive> locoList;
-	private ArrayList<Route> routeList;
-	private ArrayList<Weather> weatherList;
+	private ArrayList<Route> routes;
+	private HashMap<Route,ArrayList<Locomotive>> locos;
+	private ArrayList<Weather> weathers;
 	private SaveLoco unselectedLocos;
 	private Config config;
-	private static Main core;
+	private static Main core=null;
 	public static void main(String[] args) {
 		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
 		
 	}
+	@Test
+	public void randomTest(){
+		
+	}
 	public static Main getInstance() {
+		if (core==null) core=new Main();
 		return core;
 	}
-	@Deprecated
-	public Main()
+	protected Main()
 	{
-		locoList=new ArrayList<>();
-		routeList=new ArrayList<>();
-	}
-	public Main(Vector<String> routeName,HashMap<String, List<String>> locos,Vector<String> weather)
-	{
-		core=this;
+		routes=new ArrayList<>();
+		locos=new HashMap<>();
+		weathers=new ArrayList<>();
 
-		locoList=new ArrayList<>();
-		routeList=new ArrayList<>();
-		weatherList=new ArrayList<>();
-		
-		for (int i=0;i<routeName.size();i++)
-		{
-			ArrayList<Locomotive> locoRoute=new ArrayList<>();
-			for (int j=0;j<locos.get(routeName.get(i)).size();j++) {
-				Locomotive locomotive=new Locomotive(locoList.size(), locos.get(routeName.get(i)).get(j), i);
-				locoList.add(locomotive);
-				locoRoute.add(locomotive);
-			}
-			routeList.add(new Route(i, routeName.get(i),locoRoute));
-		}
-		for (int i=0;i<weather.size();i++) {
-			weatherList.add(new Weather(i, weather.get(i)));
-		}
-		
-		config=new Config(this);
+		config=new Config();
 		if (config.getConfig("DefaultSaveFilePath")==null)
-			unselectedLocos=new SaveLoco(routeList,this);
+			unselectedLocos=new SaveLoco(com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList());
 		else {
-			unselectedLocos=new SaveLoco(routeList, this, config.getConfig("DefaultSaveFilePath"));
+			unselectedLocos=new SaveLoco(com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList(), config.getConfig("DefaultSaveFilePath"));
 		}
+
+		for (int i=0;i<com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList().size();i++){
+			Route route=new Route(com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList().get(i));
+			ArrayList<Locomotive> locoList=new ArrayList<>();
+			for (int j=0;j<com.github.freddyyj.randomtsw.gui.Main.controller.getLocoList().get(i).size();j++){
+				Locomotive locomotive=new Locomotive(com.github.freddyyj.randomtsw.gui.Main.controller.getLocoList().get(i).get(j),route);
+				locoList.add(locomotive);
+			}
+			locos.put(route,locoList);
+		}
+
+		for (int i=0;i<com.github.freddyyj.randomtsw.gui.Main.controller.getWeather().size();i++){
+			Weather weather=new Weather(com.github.freddyyj.randomtsw.gui.Main.controller.getWeather().get(i));
+			weathers.add(weather);
+		}
+
+		reload();
 	}
-	public Locomotive getRandomLocomotive()
-	{
-		Random random=new Random();
-		int num=random.nextInt(locoList.size());
-		return locoList.get(num);
-	}
-	public Locomotive getRandomLocomotive(Route route) {
-		ArrayList<Locomotive> locos=new ArrayList<>();
-		for (int i=0;i<locoList.size();i++) {
-			if (locoList.get(i).getRoute()==route.getId()) {
-				locos.add(locoList.get(i));
+	public void reload(){
+		for (int i=0;i<routes.size();i++){
+			for (int j=0;j<unselectedLocos.getRoute().size();j++){
+				if (routes.get(i).getName().equals(unselectedLocos.getRoute().get(j))) {
+					routes.remove(i);
+					i--;
+					break;
+				}
+			}
+			ArrayList<String> locos=unselectedLocos.getLocomotive(routes.get(i).getName());
+			for (int k=0;k<this.locos.get(routes.get(i)).size();k++){
+				for (int l=0;l<locos.size();l++){
+					if (this.locos.get(routes.get(i)).get(k).getName().equals(locos.get(l))){
+						this.locos.get(routes.get(i)).remove(k);
+						k--;
+						break;
+					}
+				}
 			}
 		}
-		Random random=new Random();
-		int num=random.nextInt(locos.size());
-		return locos.get(num);
+
+		for (int i=0;i<weathers.size();i++){
+			for (int j=0;j<unselectedLocos.getWeather().size();j++){
+				if (weathers.get(i).getName().equals(unselectedLocos.getWeather().get(j))){
+					weathers.remove(i);
+					i--;
+					break;
+				}
+			}
+		}
 	}
-	public Weather getRandomWeather()
-	{
-		Random random=new Random();
-		int num=random.nextInt(weatherList.size());
-		return weatherList.get(num);
-	}
-	public Route getRandomRoute() {
-		Random random=new Random();
-		int num=random.nextInt(routeList.size());
-		return routeList.get(num);
-	}
+
 	public Route getRoute(Locomotive loco)
 	{
 		for (Route route:routeList)
@@ -117,14 +120,6 @@ public class Main {
 			}
 		}
 		return null;
-	}
-	@Deprecated
-	public void printRandomTSW(String[] args) {
-		Main main=new Main();
-		Locomotive loco=main.getRandomLocomotive();
-		Route route=main.getRoute(loco);
-		System.out.println(route.getName()+": "+loco.getName());
-		
 	}
 	public void selectRoute(boolean isSelected,String routeName) {
 		Route route=getRoute(routeName);

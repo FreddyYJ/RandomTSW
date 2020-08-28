@@ -1,20 +1,18 @@
 package com.github.freddyyj.randomtsw;
 public class Locomotive {
-	private int id;
 	private String name;
-	private int route;
+	private Route route;
 	public static int count=0;
-	public Locomotive(int id,String name,int route)
+	@Deprecated
+	public Locomotive(int id,String name,Route route)
 	{
-		this.setId(id);
 		this.setName(name);
 		this.setRoute(route);
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
+	public Locomotive(String name,Route route)
+	{
+		this.setName(name);
+		this.setRoute(route);
 	}
 	public String getName() {
 		return name;
@@ -22,10 +20,10 @@ public class Locomotive {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getRoute() {
+	public Route getRoute() {
 		return route;
 	}
-	public void setRoute(int route) {
+	public void setRoute(Route route) {
 		this.route = route;
 	}
 }
