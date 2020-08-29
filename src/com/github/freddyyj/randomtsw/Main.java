@@ -6,7 +6,6 @@ import com.github.freddyyj.randomtsw.config.Config;
 import com.github.freddyyj.randomtsw.config.SaveLoco;
 
 import javafx.application.Application;
-import org.junit.Test;
 
 public class Main {
 	private ArrayList<Route> routes;
