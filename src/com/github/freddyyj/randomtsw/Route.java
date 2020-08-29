@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Route {
 	private String name;
 	private ArrayList<Locomotive> locomotives;
+	public boolean isSelected;
 	@Deprecated
 	public Route(int num, File file)
 	{
@@ -20,12 +21,14 @@ public class Route {
 		this.name=name;
 		locomotives=locos;
 	}
-	public Route(String name, ArrayList<Locomotive> locos){
+	public Route(String name, ArrayList<Locomotive> locos,boolean select){
 		this.name=name;
 		locomotives=locos;
+		isSelected=select;
 	}
-	public Route(String name){
+	public Route(String name,boolean select){
 		this.name=name;
+		isSelected=select;
 	}
 	public String getName()
 	{

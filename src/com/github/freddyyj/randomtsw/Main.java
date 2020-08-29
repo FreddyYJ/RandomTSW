@@ -43,10 +43,10 @@ public class Main {
 		}
 
 		for (int i = 0; i< controller.getRouteList().size(); i++){
-			Route route=new Route(controller.getRouteList().get(i));
+			Route route=new Route(controller.getRouteList().get(i),true);
 			ArrayList<Locomotive> locoList=new ArrayList<>();
 			for (int j = 0; j< controller.getLocoList().get(i).size(); j++){
-				Locomotive locomotive=new Locomotive(controller.getLocoList().get(i).get(j),route);
+				Locomotive locomotive=new Locomotive(controller.getLocoList().get(i).get(j),route,true);
 				locoList.add(locomotive);
 			}
 			locos.put(route,locoList);
@@ -54,7 +54,7 @@ public class Main {
 		}
 
 		for (int i = 0; i< controller.getWeather().size(); i++){
-			Weather weather=new Weather(controller.getWeather().get(i));
+			Weather weather=new Weather(controller.getWeather().get(i),true);
 			weathers.add(weather);
 		}
 
@@ -70,8 +70,7 @@ public class Main {
 		for (int i=0;i<routes.size();i++){
 			for (int j=0;j<unselectedLocos.getRoute().size();j++){
 				if (routes.get(i).getName().equals(unselectedLocos.getRoute().get(j))) {
-					routes.remove(i);
-					i--;
+					routes.get(i).isSelected=false;
 					break;
 				}
 			}
@@ -79,8 +78,7 @@ public class Main {
 			for (int k=0;k<this.locos.get(routes.get(i)).size();k++){
 				for (int l=0;l<locos.size();l++){
 					if (this.locos.get(routes.get(i)).get(k).getName().equals(locos.get(l))){
-						this.locos.get(routes.get(i)).remove(k);
-						k--;
+						this.locos.get(routes.get(i)).get(k).isSelected=false;
 						break;
 					}
 				}
@@ -90,8 +88,7 @@ public class Main {
 		for (int i=0;i<weathers.size();i++){
 			for (int j=0;j<unselectedLocos.getWeather().size();j++){
 				if (weathers.get(i).getName().equals(unselectedLocos.getWeather().get(j))){
-					weathers.remove(i);
-					i--;
+					weathers.get(i).isSelected=false;
 					break;
 				}
 			}
@@ -128,30 +125,36 @@ public class Main {
 		}
 		return null;
 	}
-	public void selectRoute(boolean isSelected,String route) {
+	public void selectRoute(boolean isSelected,Route route) {
 		if (!isSelected) {
-			unselectedLocos.addRoute(route);
+			unselectedLocos.addRoute(route.getName());
+			route.isSelected=false;
 		}
 		else {
-			unselectedLocos.removeRoute(route);
+			unselectedLocos.removeRoute(route.getName());
+			route.isSelected=true;
 		}
 	}
 	public void selectLocomotive(boolean isSelected,Locomotive loco,Route route) {
 		ArrayList<Locomotive> locoList=getLocomotive(route.getName());
 		if (!isSelected) {
 			unselectedLocos.addLocomotive(route.getName(),loco.getName());
+			loco.isSelected=false;
 		}
 		else {
 			unselectedLocos.removeLocomotive(route.getName(),loco.getName());
+			loco.isSelected=true;
 		}
 
 	}
 	public void selectWeather(boolean isSelected,Weather weather) {
 		if (!isSelected) {
 			unselectedLocos.addWeather(weather.getName());
+			weather.isSelected=false;
 		}
 		else {
 			unselectedLocos.removeWeather(weather.getName());
+			weather.isSelected=true;
 		}
 
 	}
