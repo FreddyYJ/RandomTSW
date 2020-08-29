@@ -14,7 +14,7 @@ import java.util.Optional;
 public class Main extends Application{
 	static Scene scene;
 	static Stage stage;
-	private MainController controller;
+	public static MainController controller;
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		FXMLLoader loader=new FXMLLoader(getClass().getResource("MainDoc.fxml"));
@@ -25,6 +25,7 @@ public class Main extends Application{
 		primaryStage.setWidth(500);
 		primaryStage.setHeight(400);
 		controller=loader.getController();
+		com.github.freddyyj.randomtsw.Main.getInstance();
 		primaryStage.setOnCloseRequest(event -> {
 			com.github.freddyyj.randomtsw.Main core= com.github.freddyyj.randomtsw.Main.getInstance();
 			if(core.isSaveChanged()) {

@@ -6,184 +6,157 @@ import com.github.freddyyj.randomtsw.config.Config;
 import com.github.freddyyj.randomtsw.config.SaveLoco;
 
 import javafx.application.Application;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+
+import static com.github.freddyyj.randomtsw.gui.Main.controller;
 
 public class Main {
-	private ArrayList<Locomotive> locoList;
-	private ArrayList<Route> routeList;
-	private ArrayList<Weather> weatherList;
+	private ArrayList<Route> routes;
+
+	public HashMap<Route, ArrayList<Locomotive>> getLocos() {
+		return locos;
+	}
+
+	private HashMap<Route,ArrayList<Locomotive>> locos;
+	private ArrayList<Weather> weathers;
 	private SaveLoco unselectedLocos;
 	private Config config;
-	private static Main core;
+	private static Main core=null;
 	public static void main(String[] args) {
 		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
 		
 	}
 	public static Main getInstance() {
+		if (core==null) core=new Main();
 		return core;
 	}
-	@Deprecated
-	public Main()
+	protected Main()
 	{
-		locoList=new ArrayList<>();
-		routeList=new ArrayList<>();
-	}
-	public Main(Vector<String> routeName,HashMap<String, List<String>> locos,Vector<String> weather)
-	{
-		core=this;
+		routes=new ArrayList<>();
+		locos=new HashMap<>();
+		weathers=new ArrayList<>();
 
-		locoList=new ArrayList<>();
-		routeList=new ArrayList<>();
-		weatherList=new ArrayList<>();
-		
-		for (int i=0;i<routeName.size();i++)
-		{
-			ArrayList<Locomotive> locoRoute=new ArrayList<>();
-			for (int j=0;j<locos.get(routeName.get(i)).size();j++) {
-				Locomotive locomotive=new Locomotive(locoList.size(), locos.get(routeName.get(i)).get(j), i);
-				locoList.add(locomotive);
-				locoRoute.add(locomotive);
-			}
-			routeList.add(new Route(i, routeName.get(i),locoRoute));
-		}
-		for (int i=0;i<weather.size();i++) {
-			weatherList.add(new Weather(i, weather.get(i)));
-		}
-		
-		config=new Config(this);
+		config=new Config();
 		if (config.getConfig("DefaultSaveFilePath")==null)
-			unselectedLocos=new SaveLoco(routeList,this);
+			unselectedLocos=new SaveLoco(controller.getRouteList());
 		else {
-			unselectedLocos=new SaveLoco(routeList, this, config.getConfig("DefaultSaveFilePath"));
+			unselectedLocos=new SaveLoco(controller.getRouteList(), config.getConfig("DefaultSaveFilePath"));
 		}
+
+		for (int i = 0; i< controller.getRouteList().size(); i++){
+			Route route=new Route(controller.getRouteList().get(i),true);
+			ArrayList<Locomotive> locoList=new ArrayList<>();
+			for (int j = 0; j< controller.getLocoList().get(i).size(); j++){
+				Locomotive locomotive=new Locomotive(controller.getLocoList().get(i).get(j),route,true);
+				locoList.add(locomotive);
+			}
+			locos.put(route,locoList);
+			routes.add(route);
+		}
+
+		for (int i = 0; i< controller.getWeather().size(); i++){
+			Weather weather=new Weather(controller.getWeather().get(i),true);
+			weathers.add(weather);
+		}
+
+		reload();
+		controller.reload(unselectedLocos);
 	}
-	public Locomotive getRandomLocomotive()
-	{
-		Random random=new Random();
-		int num=random.nextInt(locoList.size());
-		return locoList.get(num);
+
+	public SaveLoco getUnselectedLocos() {
+		return unselectedLocos;
 	}
-	public Locomotive getRandomLocomotive(Route route) {
-		ArrayList<Locomotive> locos=new ArrayList<>();
-		for (int i=0;i<locoList.size();i++) {
-			if (locoList.get(i).getRoute()==route.getId()) {
-				locos.add(locoList.get(i));
+
+	public void reload(){
+		for (int i=0;i<routes.size();i++){
+			for (int j=0;j<unselectedLocos.getRoute().size();j++){
+				if (routes.get(i).getName().equals(unselectedLocos.getRoute().get(j))) {
+					routes.get(i).isSelected=false;
+					break;
+				}
+			}
+			ArrayList<String> locos=unselectedLocos.getLocomotive(routes.get(i).getName());
+			for (int k=0;k<this.locos.get(routes.get(i)).size();k++){
+				for (int l=0;l<locos.size();l++){
+					if (this.locos.get(routes.get(i)).get(k).getName().equals(locos.get(l))){
+						this.locos.get(routes.get(i)).get(k).isSelected=false;
+						break;
+					}
+				}
 			}
 		}
-		Random random=new Random();
-		int num=random.nextInt(locos.size());
-		return locos.get(num);
-	}
-	public Weather getRandomWeather()
-	{
-		Random random=new Random();
-		int num=random.nextInt(weatherList.size());
-		return weatherList.get(num);
-	}
-	public Route getRandomRoute() {
-		Random random=new Random();
-		int num=random.nextInt(routeList.size());
-		return routeList.get(num);
-	}
-	public Route getRoute(Locomotive loco)
-	{
-		for (Route route:routeList)
-		{
-			if (route.getId()==loco.getRoute())
-				return route;
+
+		for (int i=0;i<weathers.size();i++){
+			for (int j=0;j<unselectedLocos.getWeather().size();j++){
+				if (weathers.get(i).getName().equals(unselectedLocos.getWeather().get(j))){
+					weathers.get(i).isSelected=false;
+					break;
+				}
+			}
 		}
-		return null;
 	}
+	public ArrayList<Route> getRoutes(){return routes;}
+	public ArrayList<Weather> getWeathers(){return weathers;}
 	public Route getRoute(String name) {
-		for (int i=0;i<routeList.size();i++) {
-			if (routeList.get(i).getName().equals(name)) {
-				return routeList.get(i);
+		for (int i=0;i<routes.size();i++) {
+			if (routes.get(i).getName().equals(name)) {
+				return routes.get(i);
 			}
 		}
 		return null;
 	}
-	public Locomotive getLocomotive(String name,String routeName) {
-		for (int i=0;i<locoList.size();i++) {
-			if (locoList.get(i).getName().equals(name) && routeList.get(locoList.get(i).getRoute()).getName().equals(routeName))
-				return locoList.get(i);
+	public ArrayList<Locomotive> getLocomotive(String routeName) {
+		Route route=getRoute(routeName);
+		if (locos.get(route).size()>=1)
+			return locos.get(route);
+		else return null;
+	}
+	public Locomotive getLocomotive(String routeName,String locoName){
+		ArrayList<Locomotive> locoList=getLocomotive(routeName);
+		for (int i=0;i<locoList.size();i++){
+			if (locoList.get(i).getName().equals(locoName)) return locoList.get(i);
 		}
 		return null;
 	}
 	public Weather getWeather(String name) {
-		for (int i=0;i<weatherList.size();i++) {
-			if (weatherList.get(i).getName().equals(name)) {
-				return weatherList.get(i);
+		for (int i=0;i<weathers.size();i++) {
+			if (weathers.get(i).getName().equals(name)) {
+				return weathers.get(i);
 			}
 		}
 		return null;
 	}
-	@Deprecated
-	public void printRandomTSW(String[] args) {
-		Main main=new Main();
-		Locomotive loco=main.getRandomLocomotive();
-		Route route=main.getRoute(loco);
-		System.out.println(route.getName()+": "+loco.getName());
-		
-	}
-	public void selectRoute(boolean isSelected,String routeName) {
-		Route route=getRoute(routeName);
-		if (isSelected==false) {
-			unselectedLocos.add(route);
+	public void selectRoute(boolean isSelected,Route route) {
+		if (!isSelected) {
+			unselectedLocos.addRoute(route.getName());
+			route.isSelected=false;
 		}
 		else {
-			unselectedLocos.remove(route);
+			unselectedLocos.removeRoute(route.getName());
+			route.isSelected=true;
 		}
 	}
-	public void selectLocomotive(boolean isSelected,String locoName,String routeName) {
-		Locomotive loco=getLocomotive(locoName, routeName);
-		if (isSelected==false) {
-			unselectedLocos.add(loco);
+	public void selectLocomotive(boolean isSelected,Locomotive loco,Route route) {
+		ArrayList<Locomotive> locoList=getLocomotive(route.getName());
+		if (!isSelected) {
+			unselectedLocos.addLocomotive(route.getName(),loco.getName());
+			loco.isSelected=false;
 		}
 		else {
-			unselectedLocos.remove(loco);
+			unselectedLocos.removeLocomotive(route.getName(),loco.getName());
+			loco.isSelected=true;
 		}
 
 	}
-	public void selectWeather(boolean isSelected,String weatherName) {
-		Weather weather=getWeather(weatherName);
-		if (isSelected==false) {
-			unselectedLocos.add(weather);
+	public void selectWeather(boolean isSelected,Weather weather) {
+		if (!isSelected) {
+			unselectedLocos.addWeather(weather.getName());
+			weather.isSelected=false;
 		}
 		else {
-			unselectedLocos.remove(weather);
+			unselectedLocos.removeWeather(weather.getName());
+			weather.isSelected=true;
 		}
 
-	}
-	public ArrayList<Route> getUnselectedRoute(){
-		ArrayList<Route> routes=new ArrayList<>();
-		ArrayList<String> routeStrings=unselectedLocos.getRoute();
-		for (int i=0;i<routeStrings.size();i++) {
-			routes.add(getRoute(routeStrings.get(i)));
-		}
-		return routes;
-	}
-	public ArrayList<ArrayList<Locomotive>> getUnselectedLoco(){
-		ArrayList<ArrayList<Locomotive>> locos=new ArrayList<>();
-		ArrayList<String> locoStrings;
-		ArrayList<Locomotive> locoList;
-		for (int i=0;i<routeList.size();i++) {
-			locoList=new ArrayList<>();
-			locoStrings=unselectedLocos.getLocomotive(routeList.get(i));
-			for (int j=0;j<locoStrings.size();j++) {
-				locoList.add(getLocomotive(locoStrings.get(j), routeList.get(i).getName()));
-			}
-			locos.add(locoList);
-		}
-		return locos;
-	}
-	public ArrayList<Weather> getUnselectedWeather(){
-		ArrayList<Weather> weathers=new ArrayList<>();
-		ArrayList<String> weatherStrings=unselectedLocos.getWeather();
-		for (int i=0;i<weatherStrings.size();i++) {
-			weathers.add(getWeather(weatherStrings.get(i)));
-		}
-		return weathers;
 	}
 	public void close() {
 		unselectedLocos.save();

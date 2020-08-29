@@ -1,17 +1,15 @@
 package com.github.freddyyj.randomtsw;
 
 public class Weather {
-	private int id;
 	private String name;
+	public boolean isSelected;
+	@Deprecated
 	public Weather(int id,String name) {
-		this.setId(id);
 		this.setName(name);
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
+	public Weather(String name,boolean select) {
+		this.setName(name);
+		isSelected=select;
 	}
 	public String getName() {
 		return name;
