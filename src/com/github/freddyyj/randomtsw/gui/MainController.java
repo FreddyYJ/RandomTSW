@@ -2,6 +2,7 @@ package com.github.freddyyj.randomtsw.gui;
 
 import com.github.freddyyj.randomtsw.*;
 import com.github.freddyyj.randomtsw.Main;
+import com.github.freddyyj.randomtsw.config.SaveLoco;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -56,7 +57,6 @@ public class MainController {
     private List<Node> weathers;
     private VBox currentRoute; // Box of locos that selected
     private CheckBox currentBox; // Route Checkbox
-    private Main core;
 
     public MainController() {
     }
@@ -90,8 +90,6 @@ public class MainController {
         for (int i = 0; i < weathers.size(); i++) {
             weather.add(((CheckBox) weathers.get(i)).getText());
         }
-        core=Main.getInstance();
-        reload();
 
         currentBox = (CheckBox) this.routes.get(0);
 
@@ -150,12 +148,17 @@ public class MainController {
 
     @FXML
     protected void onRandomAll(ActionEvent e) {
+        ArrayList<ArrayList<Locomotive>> locoList=new ArrayList<>();
+        for (int i=0;i<Main.getInstance().getRoutes().size();i++){
+            locoList.add(Main.getInstance().getLocomotive(Main.getInstance().getRoutes().get(i).getName()));
+        }
+
         Random random=Random.getInstance();
-        Locomotive loco = random.randomLocomotiveInAll((ArrayList<ArrayList<Locomotive>>) core.getLocos().values());
+        Locomotive loco = random.randomLocomotiveInAll(locoList);
         Route route = loco.getRoute();
 
         CheckBox locoBox = getLocoByName(loco.getName(), route.getName());
-        Weather weather = random.randomWeather(core.getWeathers());
+        Weather weather = random.randomWeather(Main.getInstance().getWeathers());
 
         textPickedRoute.setText(route.getName());
         textPickedLoco.setText(loco.getName());
@@ -172,7 +175,7 @@ public class MainController {
     @FXML
     protected void onRandomRoute(ActionEvent e) {
         Random random=Random.getInstance();
-        Route selected=random.randomRoute(core.getRoutes());
+        Route selected=random.randomRoute(Main.getInstance().getRoutes());
         CheckBox selectedRoute = getRouteByName(selected.getName());
 
         currentRoute.setVisible(false);
@@ -189,7 +192,7 @@ public class MainController {
     @FXML
     protected void onRandomLoco(ActionEvent e) {
         Random random=Random.getInstance();
-        Locomotive selected=random.randomLocomotive(core.getLocomotive(currentBox.getText()));
+        Locomotive selected=random.randomLocomotive(Main.getInstance().getLocomotive(currentBox.getText()));
         CheckBox loco = getLocoByName(selected.getName(),currentBox.getText());
 
         textPickedRoute.setText(currentBox.getText());
@@ -199,7 +202,7 @@ public class MainController {
     @FXML
     protected void onRandomWeather(ActionEvent e) {
         Random random=Random.getInstance();
-        Weather weather = random.randomWeather(core.getWeathers());
+        Weather weather = random.randomWeather(Main.getInstance().getWeathers());
         textPickedWeather.setText(weather.getName());
     }
 
@@ -207,7 +210,7 @@ public class MainController {
     protected void onCheckLocoSelect(ActionEvent e) {
         if (e.getSource() instanceof CheckBox) {
             CheckBox selectedLoco = (CheckBox) e.getSource();
-            core.selectLocomotive(selectedLoco.isSelected(), core.getLocomotive(currentBox.getText(),selectedLoco.getText()), core.getRoute(currentBox.getText()));
+            Main.getInstance().selectLocomotive(selectedLoco.isSelected(), Main.getInstance().getLocomotive(currentBox.getText(),selectedLoco.getText()), Main.getInstance().getRoute(currentBox.getText()));
         }
     }
 
@@ -215,7 +218,7 @@ public class MainController {
     protected void onCheckRouteSelect(ActionEvent e) {
         if (e.getSource() instanceof CheckBox) {
             CheckBox selectedRoute = (CheckBox) e.getSource();
-            core.selectRoute(selectedRoute.isSelected(), core.getRoute(selectedRoute.getText()));
+            Main.getInstance().selectRoute(selectedRoute.isSelected(), Main.getInstance().getRoute(selectedRoute.getText()));
         }
 
     }
@@ -224,7 +227,7 @@ public class MainController {
     protected void onCheckWeatherSelect(ActionEvent e) {
         if (e.getSource() instanceof CheckBox) {
             CheckBox selectedWeather = (CheckBox) e.getSource();
-            core.selectWeather(selectedWeather.isSelected(), core.getWeather(selectedWeather.getText()));
+            Main.getInstance().selectWeather(selectedWeather.isSelected(), Main.getInstance().getWeather(selectedWeather.getText()));
         }
 
     }
@@ -236,7 +239,7 @@ public class MainController {
         chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
         File currentFile = chooser.showSaveDialog(anchorPane.getScene().getWindow());
         if (currentFile != null) {
-            core.saveAs(currentFile.getPath());
+            Main.getInstance().saveAs(currentFile.getPath());
         }
     }
 
@@ -247,15 +250,15 @@ public class MainController {
         chooser.getExtensionFilters().add(new ExtensionFilter("JSON File", "*.json"));
         File file = chooser.showOpenDialog(anchorPane.getScene().getWindow());
         if (file != null) {
-            core.reloadSaveFile(file.getPath());
-            reload();
+            Main.getInstance().reloadSaveFile(file.getPath());
+            reload(Main.getInstance().getUnselectedLocos());
         }
     }
 
     @FXML
     protected void onSave(ActionEvent e) {
-        if (core.getSaveFilePath() != null)
-            core.saveAs(core.getSaveFilePath());
+        if (Main.getInstance().getSaveFilePath() != null)
+            Main.getInstance().saveAs(Main.getInstance().getSaveFilePath());
         else {
             onSaveAs(e);
         }
@@ -286,21 +289,24 @@ public class MainController {
         }
     }
 
-    public void reload() {
-        ArrayList<Route> unselectedRoutes = core.getRoutes();
+    public void reload(SaveLoco save) {
+        ArrayList<String> routes=save.getRoute();
         for (int i = 0; i < this.routes.size(); i++) {
-            if (!unselectedRoutes.contains(core.getRoute(((CheckBox) this.routes.get(i)).getText()))) {
+            if (routes.contains(((CheckBox)this.routes.get(i)).getText())) {
                 ((CheckBox) this.routes.get(i)).setSelected(false);
             } else {
                 ((CheckBox) this.routes.get(i)).setSelected(true);
             }
         }
 
-        ArrayList<ArrayList<Locomotive>> unselectedLocos = (ArrayList<ArrayList<Locomotive>>) core.getLocos().values();
-        for (int i = 0; i < unselectedLocos.size(); i++) {
-            String routeName=getRouteList().get(i);
+        ArrayList<ArrayList<String>> locos=new ArrayList<>();
+        for (int i=0;i<this.routes.size();i++){
+            locos.add(save.getLocomotive(((CheckBox)this.routes.get(i)).getText()));
+        }
+
+        for (int i = 0; i < locos.size(); i++) {
             for (int j = 0; j < this.locos.get(i).size(); j++) {
-                if (!unselectedLocos.get(i).contains((core.getLocomotive(routeName).get(j)))) {
+                if (locos.get(i).contains(((CheckBox)this.locos.get(i).get(j)).getText())) {
                     ((CheckBox) this.locos.get(i).get(j)).setSelected(false);
                 } else {
                     ((CheckBox) this.locos.get(i).get(j)).setSelected(true);
@@ -309,9 +315,9 @@ public class MainController {
             }
         }
 
-        ArrayList<Weather> unselectedWeathers = core.getWeathers();
+        ArrayList<String> weathers=save.getWeather();
         for (int i = 0; i < this.weathers.size(); i++) {
-            if (!unselectedWeathers.contains(core.getWeather(((CheckBox) this.weathers.get(i)).getText()))) {
+            if (weathers.contains(((CheckBox)this.weathers.get(i)).getText())) {
                 ((CheckBox) this.weathers.get(i)).setSelected(false);
             } else {
                 ((CheckBox) this.weathers.get(i)).setSelected(true);

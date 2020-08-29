@@ -7,6 +7,8 @@ import com.github.freddyyj.randomtsw.config.SaveLoco;
 
 import javafx.application.Application;
 
+import static com.github.freddyyj.randomtsw.gui.Main.controller;
+
 public class Main {
 	private ArrayList<Route> routes;
 
@@ -35,28 +37,35 @@ public class Main {
 
 		config=new Config();
 		if (config.getConfig("DefaultSaveFilePath")==null)
-			unselectedLocos=new SaveLoco(com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList());
+			unselectedLocos=new SaveLoco(controller.getRouteList());
 		else {
-			unselectedLocos=new SaveLoco(com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList(), config.getConfig("DefaultSaveFilePath"));
+			unselectedLocos=new SaveLoco(controller.getRouteList(), config.getConfig("DefaultSaveFilePath"));
 		}
 
-		for (int i=0;i<com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList().size();i++){
-			Route route=new Route(com.github.freddyyj.randomtsw.gui.Main.controller.getRouteList().get(i));
+		for (int i = 0; i< controller.getRouteList().size(); i++){
+			Route route=new Route(controller.getRouteList().get(i));
 			ArrayList<Locomotive> locoList=new ArrayList<>();
-			for (int j=0;j<com.github.freddyyj.randomtsw.gui.Main.controller.getLocoList().get(i).size();j++){
-				Locomotive locomotive=new Locomotive(com.github.freddyyj.randomtsw.gui.Main.controller.getLocoList().get(i).get(j),route);
+			for (int j = 0; j< controller.getLocoList().get(i).size(); j++){
+				Locomotive locomotive=new Locomotive(controller.getLocoList().get(i).get(j),route);
 				locoList.add(locomotive);
 			}
 			locos.put(route,locoList);
+			routes.add(route);
 		}
 
-		for (int i=0;i<com.github.freddyyj.randomtsw.gui.Main.controller.getWeather().size();i++){
-			Weather weather=new Weather(com.github.freddyyj.randomtsw.gui.Main.controller.getWeather().get(i));
+		for (int i = 0; i< controller.getWeather().size(); i++){
+			Weather weather=new Weather(controller.getWeather().get(i));
 			weathers.add(weather);
 		}
 
 		reload();
+		controller.reload(unselectedLocos);
 	}
+
+	public SaveLoco getUnselectedLocos() {
+		return unselectedLocos;
+	}
+
 	public void reload(){
 		for (int i=0;i<routes.size();i++){
 			for (int j=0;j<unselectedLocos.getRoute().size();j++){
@@ -119,12 +128,12 @@ public class Main {
 		}
 		return null;
 	}
-	public void selectRoute(boolean isSelected,Route route) {
+	public void selectRoute(boolean isSelected,String route) {
 		if (!isSelected) {
-			unselectedLocos.addRoute(route.getName());
+			unselectedLocos.addRoute(route);
 		}
 		else {
-			unselectedLocos.removeRoute(route.getName());
+			unselectedLocos.removeRoute(route);
 		}
 	}
 	public void selectLocomotive(boolean isSelected,Locomotive loco,Route route) {

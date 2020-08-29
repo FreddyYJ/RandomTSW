@@ -25,6 +25,7 @@ public class Main extends Application{
 		primaryStage.setWidth(500);
 		primaryStage.setHeight(400);
 		controller=loader.getController();
+		com.github.freddyyj.randomtsw.Main.getInstance();
 		primaryStage.setOnCloseRequest(event -> {
 			com.github.freddyyj.randomtsw.Main core= com.github.freddyyj.randomtsw.Main.getInstance();
 			if(core.isSaveChanged()) {
