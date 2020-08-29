@@ -18,16 +18,27 @@ public class Random {
 
         return routes.get(randomValue);
     }
-    public Locomotive randomWeather(ArrayList<Locomotive> weathers){
-        int size=weathers.size();
-        int randomValue=randomObject.nextInt(size);
-
-        return weathers.get(randomValue);
-    }
-    public Weather randomLocomotive(ArrayList<Weather> locomotives){
+    public Locomotive randomLocomotive(ArrayList<Locomotive> locomotives){
         int size=locomotives.size();
         int randomValue=randomObject.nextInt(size);
 
         return locomotives.get(randomValue);
+    }
+    public Locomotive randomLocomotiveInAll(ArrayList<ArrayList<Locomotive>> locomotives){
+        ArrayList<Locomotive> list=new ArrayList<>();
+        for (int i=0;i<locomotives.size();i++){
+            list.addAll(locomotives.get(i));
+        }
+
+        int size=list.size();
+        int randomValue=randomObject.nextInt(size);
+
+        return list.get(randomValue);
+    }
+    public Weather randomWeather(ArrayList<Weather> weathers){
+        int size=weathers.size();
+        int randomValue=randomObject.nextInt(size);
+
+        return weathers.get(randomValue);
     }
 }

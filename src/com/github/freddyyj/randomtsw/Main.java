@@ -10,6 +10,11 @@ import org.junit.Test;
 
 public class Main {
 	private ArrayList<Route> routes;
+
+	public HashMap<Route, ArrayList<Locomotive>> getLocos() {
+		return locos;
+	}
+
 	private HashMap<Route,ArrayList<Locomotive>> locos;
 	private ArrayList<Weather> weathers;
 	private SaveLoco unselectedLocos;
@@ -17,10 +22,6 @@ public class Main {
 	private static Main core=null;
 	public static void main(String[] args) {
 		Application.launch(com.github.freddyyj.randomtsw.gui.Main.class);
-		
-	}
-	@Test
-	public void randomTest(){
 		
 	}
 	public static Main getInstance() {
@@ -88,97 +89,63 @@ public class Main {
 			}
 		}
 	}
-
-	public Route getRoute(Locomotive loco)
-	{
-		for (Route route:routeList)
-		{
-			if (route.getId()==loco.getRoute())
-				return route;
-		}
-		return null;
-	}
+	public ArrayList<Route> getRoutes(){return routes;}
+	public ArrayList<Weather> getWeathers(){return weathers;}
 	public Route getRoute(String name) {
-		for (int i=0;i<routeList.size();i++) {
-			if (routeList.get(i).getName().equals(name)) {
-				return routeList.get(i);
+		for (int i=0;i<routes.size();i++) {
+			if (routes.get(i).getName().equals(name)) {
+				return routes.get(i);
 			}
 		}
 		return null;
 	}
-	public Locomotive getLocomotive(String name,String routeName) {
-		for (int i=0;i<locoList.size();i++) {
-			if (locoList.get(i).getName().equals(name) && routeList.get(locoList.get(i).getRoute()).getName().equals(routeName))
-				return locoList.get(i);
+	public ArrayList<Locomotive> getLocomotive(String routeName) {
+		Route route=getRoute(routeName);
+		if (locos.get(route).size()>=1)
+			return locos.get(route);
+		else return null;
+	}
+	public Locomotive getLocomotive(String routeName,String locoName){
+		ArrayList<Locomotive> locoList=getLocomotive(routeName);
+		for (int i=0;i<locoList.size();i++){
+			if (locoList.get(i).getName().equals(locoName)) return locoList.get(i);
 		}
 		return null;
 	}
 	public Weather getWeather(String name) {
-		for (int i=0;i<weatherList.size();i++) {
-			if (weatherList.get(i).getName().equals(name)) {
-				return weatherList.get(i);
+		for (int i=0;i<weathers.size();i++) {
+			if (weathers.get(i).getName().equals(name)) {
+				return weathers.get(i);
 			}
 		}
 		return null;
 	}
-	public void selectRoute(boolean isSelected,String routeName) {
-		Route route=getRoute(routeName);
-		if (isSelected==false) {
-			unselectedLocos.add(route);
+	public void selectRoute(boolean isSelected,Route route) {
+		if (!isSelected) {
+			unselectedLocos.addRoute(route.getName());
 		}
 		else {
-			unselectedLocos.remove(route);
+			unselectedLocos.removeRoute(route.getName());
 		}
 	}
-	public void selectLocomotive(boolean isSelected,String locoName,String routeName) {
-		Locomotive loco=getLocomotive(locoName, routeName);
-		if (isSelected==false) {
-			unselectedLocos.add(loco);
+	public void selectLocomotive(boolean isSelected,Locomotive loco,Route route) {
+		ArrayList<Locomotive> locoList=getLocomotive(route.getName());
+		if (!isSelected) {
+			unselectedLocos.addLocomotive(route.getName(),loco.getName());
 		}
 		else {
-			unselectedLocos.remove(loco);
+			unselectedLocos.removeLocomotive(route.getName(),loco.getName());
 		}
 
 	}
-	public void selectWeather(boolean isSelected,String weatherName) {
-		Weather weather=getWeather(weatherName);
-		if (isSelected==false) {
-			unselectedLocos.add(weather);
+	public void selectWeather(boolean isSelected,Weather weather) {
+		if (!isSelected) {
+			unselectedLocos.addWeather(weather.getName());
 		}
 		else {
-			unselectedLocos.remove(weather);
+			unselectedLocos.removeWeather(weather.getName());
 		}
 
-	}
-	public ArrayList<Route> getUnselectedRoute(){
-		ArrayList<Route> routes=new ArrayList<>();
-		ArrayList<String> routeStrings=unselectedLocos.getRoute();
-		for (int i=0;i<routeStrings.size();i++) {
-			routes.add(getRoute(routeStrings.get(i)));
-		}
-		return routes;
-	}
-	public ArrayList<ArrayList<Locomotive>> getUnselectedLoco(){
-		ArrayList<ArrayList<Locomotive>> locos=new ArrayList<>();
-		ArrayList<String> locoStrings;
-		ArrayList<Locomotive> locoList;
-		for (int i=0;i<routeList.size();i++) {
-			locoList=new ArrayList<>();
-			locoStrings=unselectedLocos.getLocomotive(routeList.get(i));
-			for (int j=0;j<locoStrings.size();j++) {
-				locoList.add(getLocomotive(locoStrings.get(j), routeList.get(i).getName()));
-			}
-			locos.add(locoList);
-		}
-		return locos;
-	}
-	public ArrayList<Weather> getUnselectedWeather(){
-		ArrayList<Weather> weathers=new ArrayList<>();
-		ArrayList<String> weatherStrings=unselectedLocos.getWeather();
-		for (int i=0;i<weatherStrings.size();i++) {
-			weathers.add(getWeather(weatherStrings.get(i)));
-		}
-		return weathers;
 	}
 	public void close() {
 		unselectedLocos.save();
