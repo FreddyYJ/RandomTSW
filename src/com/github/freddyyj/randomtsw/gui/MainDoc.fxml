@@ -126,32 +126,32 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkSPG2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Sand Patch Grade (TSW2)">
+                        <CheckBox fx:id="checkSPGTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Sand Patch Grade (TSW2)">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkSFK2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Schnellfahrstrecke Köln (TSW2)">
+                        <CheckBox fx:id="checkSFKTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Schnellfahrstrecke Köln (TSW2)">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkLUB2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="London Underground Bakerloo (TSW2)">
+                        <CheckBox fx:id="checkLUBTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="London Underground Bakerloo (TSW2)">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkHRR2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="HauptStrecke Rhein-Ruhr (TSW2)">
+                        <CheckBox fx:id="checkHRRTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="HauptStrecke Rhein-Ruhr (TSW2)">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkECW2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="East Coastway (TSW2)">
+                        <CheckBox fx:id="checkECWTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="East Coastway (TSW2)">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="checkPC2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Peninsula Corridor (TSW2)">
+                        <CheckBox fx:id="checkPCTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Peninsula Corridor (TSW2)">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -607,104 +607,104 @@
                               </CheckBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="boxSPGLocos2" disable="true" prefHeight="200.0" visible="false">
+                        <VBox fx:id="boxSPGLocosTsw2" disable="true" prefHeight="200.0" visible="false">
                            <children>
-                              <CheckBox fx:id="checkSPGGP382" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 CSX">
+                              <CheckBox fx:id="checkSPGGP38Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 CSX">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkSPGSD402" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="SD40-2 CSX">
+                              <CheckBox fx:id="checkSPGSD40Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="SD40-2 CSX">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkSPGAC4400CW2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="AC4400CW CSX">
+                              <CheckBox fx:id="checkSPGAC4400CWTsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="AC4400CW CSX">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="boxSFKLocos2" disable="true" prefHeight="200.0" visible="false">
+                        <VBox fx:id="boxSFKLocosTsw2" disable="true" prefHeight="200.0" visible="false">
                            <children>
-                              <CheckBox fx:id="checkSFK4422" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 442 'Talent 2'">
+                              <CheckBox fx:id="checkSFK442Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 442 'Talent 2'">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkSFK4062" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 406 ICE3M">
+                              <CheckBox fx:id="checkSFK406Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 406 ICE3M">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="boxLUBLocos2" disable="true" prefHeight="200.0" visible="false">
+                        <VBox fx:id="boxLUBLocosTsw2" disable="true" prefHeight="200.0" visible="false">
                            <children>
-                              <CheckBox fx:id="checkLUB19722" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="1972 Mk.II Tube Stock">
+                              <CheckBox fx:id="checkLUB1972Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="1972 Mk.II Tube Stock">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="boxHRRLocos2" disable="true" prefHeight="200.0" visible="false">
+                        <VBox fx:id="boxHRRLocosTsw2" disable="true" prefHeight="200.0" visible="false">
                            <children>
-                              <CheckBox fx:id="checkHRR4252" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 425">
+                              <CheckBox fx:id="checkHRR425Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 425">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkHRR4222" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 422">
+                              <CheckBox fx:id="checkHRR422Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 422">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="boxECWLocos2" disable="true" prefHeight="200.0" visible="false">
+                        <VBox fx:id="boxECWLocosTsw2" disable="true" prefHeight="200.0" visible="false">
                            <children>
-                              <CheckBox fx:id="checkECW3772" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 377/4 SN">
+                              <CheckBox fx:id="checkECW377Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 377/4 SN">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkECW662" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66 EWS/DBS">
+                              <CheckBox fx:id="checkECW66Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 66 EWS/DBS">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="boxPCLocos2" disable="true" prefHeight="200.0" visible="false">
+                        <VBox fx:id="boxPCLocosTsw2" disable="true" prefHeight="200.0" visible="false">
                            <children>
-                              <CheckBox fx:id="checkPCF402" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="F40PH-2CAT CT97">
+                              <CheckBox fx:id="checkPCF40Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="F40PH-2CAT CT97">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkPCGallery2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Gallery Cab Car CT97">
+                              <CheckBox fx:id="checkPCGalleryTsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Gallery Cab Car CT97">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkPCGP382" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 UP">
+                              <CheckBox fx:id="checkPCGP38Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="GP38-2 UP">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkPCMP362" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP36PH-3C CT 'Baby Bullet'">
+                              <CheckBox fx:id="checkPCMP36Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP36PH-3C CT 'Baby Bullet'">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkPCBiLevel2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Bi-Level Cab Car CT97">
+                              <CheckBox fx:id="checkPCBiLevelTsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Bi-Level Cab Car CT97">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox fx:id="checkPCMP152" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP15DC CT">
+                              <CheckBox fx:id="checkPCMP15Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP15DC CT">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>

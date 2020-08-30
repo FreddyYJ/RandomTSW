@@ -331,9 +331,9 @@ public class MainController {
         String locoId;
         String[] id = routeId.split("check");
         locoId = id[1];
-        if (locoId.endsWith("2")){
-            locoId=locoId.split("2")[0];
-            locoId = "box" + locoId + "Locos2";
+        if (locoId.endsWith("Tsw2")){
+            locoId=locoId.split("Tsw2")[0];
+            locoId = "box" + locoId + "LocosTsw2";
         }
         else
             locoId = "box" + locoId + "Locos";
@@ -348,9 +348,9 @@ public class MainController {
         String id;
         id = (locoId.getId().split("box"))[1];
         id = (id.split("Locos"))[0];
-        if(id.endsWith("2")){
-            id=id.split("2")[0];
-            id="check" + id+"2";
+        if(id.endsWith("Tsw2")){
+            id=id.split("Tsw2")[0];
+            id="check" + id+"Tsw2";
         }
         else
             id = "check" + id;
