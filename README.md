@@ -10,6 +10,10 @@ Or you can see which route/locomotive DLC includes.\
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
+v0.9.1
+* Add buttons 'Pick TSW2020' and 'Pick TSW2' to pick all from each game
+* Update fx:id of TSW2 routes and locos to ends with 'Tsw2'
+
 v0.9.0: Logic Update
 * Almost of sequences and data flows are changed
 * Now uncheck everything and pick random will throw exception
