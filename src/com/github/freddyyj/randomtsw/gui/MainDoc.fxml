@@ -810,6 +810,8 @@
             <TextField fx:id="textPickedRoute" disable="true" GridPane.rowIndex="1" />
             <TextField fx:id="textPickedLoco" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="textPickedWeather" disable="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="buttonRandom2020" mnemonicParsing="false" onAction="#onRandom2020" text="Pick TSW2020" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="buttonRandom2" mnemonicParsing="false" onAction="#onRandom2" text="Pick TSW2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
 	</children>

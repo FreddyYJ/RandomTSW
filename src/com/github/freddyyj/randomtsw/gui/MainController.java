@@ -205,6 +205,14 @@ public class MainController {
         Weather weather = random.randomWeather(Main.getInstance().getWeathers());
         textPickedWeather.setText(weather.getName());
     }
+    @FXML
+    protected void onRandom2020(ActionEvent e){
+
+    }
+    @FXML
+    protected void onRandom2(ActionEvent e){
+
+    }
 
     @FXML
     protected void onCheckLocoSelect(ActionEvent e) {
