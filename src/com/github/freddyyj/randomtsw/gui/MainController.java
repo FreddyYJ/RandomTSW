@@ -205,6 +205,58 @@ public class MainController {
         Weather weather = random.randomWeather(Main.getInstance().getWeathers());
         textPickedWeather.setText(weather.getName());
     }
+    @FXML
+    protected void onRandom2020(ActionEvent e){
+        ArrayList<ArrayList<Locomotive>> locoList=new ArrayList<>();
+        for (int i=0;i<Main.getInstance().getRoutes().size();i++){
+            if (!Main.getInstance().getRoutes().get(i).getName().endsWith("(TSW2)"))
+                locoList.add(Main.getInstance().getLocomotive(Main.getInstance().getRoutes().get(i).getName()));
+        }
+
+        Random random=Random.getInstance();
+        Locomotive loco = random.randomLocomotiveInAll(locoList);
+        Route route = loco.getRoute();
+
+        CheckBox locoBox = getLocoByName(loco.getName(), route.getName());
+        Weather weather = random.randomWeather(Main.getInstance().getWeathers());
+
+        textPickedRoute.setText(route.getName());
+        textPickedLoco.setText(loco.getName());
+        textPickedWeather.setText(weather.getName());
+
+        currentRoute.setVisible(false);
+        currentRoute.setDisable(true);
+        String name=getRouteByName(route.getName()).getId();
+        currentRoute = getLocoBoxByID(name);
+        currentRoute.setVisible(true);
+        currentRoute.setDisable(false);
+    }
+    @FXML
+    protected void onRandom2(ActionEvent e){
+        ArrayList<ArrayList<Locomotive>> locoList=new ArrayList<>();
+        for (int i=0;i<Main.getInstance().getRoutes().size();i++){
+            if (Main.getInstance().getRoutes().get(i).getName().endsWith("(TSW2)"))
+                locoList.add(Main.getInstance().getLocomotive(Main.getInstance().getRoutes().get(i).getName()));
+        }
+
+        Random random=Random.getInstance();
+        Locomotive loco = random.randomLocomotiveInAll(locoList);
+        Route route = loco.getRoute();
+
+        CheckBox locoBox = getLocoByName(loco.getName(), route.getName());
+        Weather weather = random.randomWeather(Main.getInstance().getWeathers());
+
+        textPickedRoute.setText(route.getName());
+        textPickedLoco.setText(loco.getName());
+        textPickedWeather.setText(weather.getName());
+
+        currentRoute.setVisible(false);
+        currentRoute.setDisable(true);
+        String name=getRouteByName(route.getName()).getId();
+        currentRoute = getLocoBoxByID(name);
+        currentRoute.setVisible(true);
+        currentRoute.setDisable(false);
+    }
 
     @FXML
     protected void onCheckLocoSelect(ActionEvent e) {
@@ -331,9 +383,9 @@ public class MainController {
         String locoId;
         String[] id = routeId.split("check");
         locoId = id[1];
-        if (locoId.endsWith("2")){
-            locoId=locoId.split("2")[0];
-            locoId = "box" + locoId + "Locos2";
+        if (locoId.endsWith("Tsw2")){
+            locoId=locoId.split("Tsw2")[0];
+            locoId = "box" + locoId + "LocosTsw2";
         }
         else
             locoId = "box" + locoId + "Locos";
@@ -348,9 +400,9 @@ public class MainController {
         String id;
         id = (locoId.getId().split("box"))[1];
         id = (id.split("Locos"))[0];
-        if(id.endsWith("2")){
-            id=id.split("2")[0];
-            id="check" + id+"2";
+        if(id.endsWith("Tsw2")){
+            id=id.split("Tsw2")[0];
+            id="check" + id+"Tsw2";
         }
         else
             id = "check" + id;
