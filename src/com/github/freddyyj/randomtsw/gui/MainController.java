@@ -207,11 +207,55 @@ public class MainController {
     }
     @FXML
     protected void onRandom2020(ActionEvent e){
+        ArrayList<ArrayList<Locomotive>> locoList=new ArrayList<>();
+        for (int i=0;i<Main.getInstance().getRoutes().size();i++){
+            if (!Main.getInstance().getRoutes().get(i).getName().endsWith("(TSW2)"))
+                locoList.add(Main.getInstance().getLocomotive(Main.getInstance().getRoutes().get(i).getName()));
+        }
 
+        Random random=Random.getInstance();
+        Locomotive loco = random.randomLocomotiveInAll(locoList);
+        Route route = loco.getRoute();
+
+        CheckBox locoBox = getLocoByName(loco.getName(), route.getName());
+        Weather weather = random.randomWeather(Main.getInstance().getWeathers());
+
+        textPickedRoute.setText(route.getName());
+        textPickedLoco.setText(loco.getName());
+        textPickedWeather.setText(weather.getName());
+
+        currentRoute.setVisible(false);
+        currentRoute.setDisable(true);
+        String name=getRouteByName(route.getName()).getId();
+        currentRoute = getLocoBoxByID(name);
+        currentRoute.setVisible(true);
+        currentRoute.setDisable(false);
     }
     @FXML
     protected void onRandom2(ActionEvent e){
+        ArrayList<ArrayList<Locomotive>> locoList=new ArrayList<>();
+        for (int i=0;i<Main.getInstance().getRoutes().size();i++){
+            if (Main.getInstance().getRoutes().get(i).getName().endsWith("(TSW2)"))
+                locoList.add(Main.getInstance().getLocomotive(Main.getInstance().getRoutes().get(i).getName()));
+        }
 
+        Random random=Random.getInstance();
+        Locomotive loco = random.randomLocomotiveInAll(locoList);
+        Route route = loco.getRoute();
+
+        CheckBox locoBox = getLocoByName(loco.getName(), route.getName());
+        Weather weather = random.randomWeather(Main.getInstance().getWeathers());
+
+        textPickedRoute.setText(route.getName());
+        textPickedLoco.setText(loco.getName());
+        textPickedWeather.setText(weather.getName());
+
+        currentRoute.setVisible(false);
+        currentRoute.setDisable(true);
+        String name=getRouteByName(route.getName()).getId();
+        currentRoute = getLocoBoxByID(name);
+        currentRoute.setVisible(true);
+        currentRoute.setDisable(false);
     }
 
     @FXML
