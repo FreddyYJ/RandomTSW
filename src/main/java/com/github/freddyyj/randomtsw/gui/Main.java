@@ -35,15 +35,15 @@ public class Main extends Application{
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		FXMLLoader loader=new FXMLLoader(getClass().getResource("MainDoc.fxml"));
+		FXMLLoader loader=new FXMLLoader(getClass().getClassLoader().getResource("MainDoc.fxml"));
 		scene=new Scene(loader.load(),250,75);
 		stage=primaryStage;
 		primaryStage.setTitle("RandomTSW");
 		primaryStage.setScene(scene);
 		primaryStage.setWidth(500);
 		primaryStage.setHeight(400);
-		if(Thread.currentThread().getContextClassLoader().getResourceAsStream("resources/icon.png")!=null)
-			primaryStage.getIcons().add(new Image(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResourceAsStream("resources/icon.png"))));
+		if(Thread.currentThread().getContextClassLoader().getResourceAsStream("icon.png")!=null)
+			primaryStage.getIcons().add(new Image(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResourceAsStream("icon.png"))));
 		controller=loader.getController();
 		com.github.freddyyj.randomtsw.Main.getInstance();
 		primaryStage.setOnCloseRequest(event -> {
