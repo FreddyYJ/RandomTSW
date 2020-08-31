@@ -2,21 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>FreddyYJ</groupId>
   <artifactId>RandomTSW</artifactId>
-  <version>0.9.1</version>
+  <version>0.9.2</version>
 
   <name>RandomTSW</name>
   <packaging>jar</packaging>
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
+      <defaultGoal>assembly:single</defaultGoal>
+      <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
@@ -45,6 +37,15 @@
             </descriptorRefs>
         </configuration>
     </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>3.0.4</version>
+              <configuration>
+                  <source>8</source>
+                  <detectJavaApiLink>false</detectJavaApiLink>
+              </configuration>
+          </plugin>
     </plugins>
     
   </build>
