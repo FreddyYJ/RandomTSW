@@ -1,14 +1,14 @@
 package com.github.freddyyj.randomtsw.gui;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class Main extends Application{
@@ -24,6 +24,8 @@ public class Main extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.setWidth(500);
 		primaryStage.setHeight(400);
+		if(Thread.currentThread().getContextClassLoader().getResourceAsStream("resources/icon.png")!=null)
+			primaryStage.getIcons().add(new Image(Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResourceAsStream("resources/icon.png"))));
 		controller=loader.getController();
 		com.github.freddyyj.randomtsw.Main.getInstance();
 		primaryStage.setOnCloseRequest(event -> {
