@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.github.freddyyj.randomtsw"},{"l":"com.github.freddyyj.randomtsw.config"},{"l":"com.github.freddyyj.randomtsw.exception"},{"l":"com.github.freddyyj.randomtsw.gui"}]

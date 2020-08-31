@@ -7,16 +7,8 @@
   <name>RandomTSW</name>
   <packaging>jar</packaging>
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
+      <defaultGoal>assembly:single</defaultGoal>
+      <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
@@ -45,6 +37,14 @@
             </descriptorRefs>
         </configuration>
     </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                  <source>8</source>
+                  <detectJavaApiLink>false</detectJavaApiLink>
+              </configuration>
+          </plugin>
     </plugins>
     
   </build>
