@@ -14,7 +14,7 @@ v0.9.2
 * Update to allow custom Random class for custom random algorithm
 * Add javadocs under docs directory
 * Javadocs link to OpenJFX is not work correctly. It's about OpenJFX javadocs, I'll work to fix this issue.
-* 
+* Add TSW icon
 
 v0.9.1
 * Add buttons 'Pick TSW2020' and 'Pick TSW2' to pick all from each game
