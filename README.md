@@ -2,6 +2,7 @@
 It will pick random route and locomotive from Train Sim World. It can help to select routes, locomotives, or weathers.
 Select randomly route, locomotive, weather, or all.\
 Or you can see which route/locomotive DLC includes.\
+* Javadocs: https://freddyyj.github.io/RandomTrainSimWorld/
 
 # How to install
 1. Install JDK 13 or up: https://www.oracle.com/java/technologies/javase-downloads.html
