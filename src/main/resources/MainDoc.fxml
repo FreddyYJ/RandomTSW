@@ -156,6 +156,21 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
+                        <CheckBox fx:id="checkTVLTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Tees Valley Line (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkLIRRTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Long Island RailRoad (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="checkRSNTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Ruhr-Sieg Nord (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
                         
                      </children>
                   </VBox>
@@ -705,6 +720,73 @@
                                  </padding>
                               </CheckBox>
                               <CheckBox fx:id="checkPCMP15Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="MP15DC CT">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxLIRRLocosTsw2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkLIRRM7Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="M7 LIRR">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkLIRRM3Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="M3 LIRR">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxRSNLocosTsw2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkRSN767Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 767.2 DABpbzfa">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkRSN185Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 185.2">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkRSN143Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 143">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkRSN155Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 155">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxTVLLocosTsw2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkTVL101Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 101 BLG">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkTVL37Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 37/5 RF">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkTVL08Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 08 BLU">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkTVL31Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 31/1 BLU">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                              <CheckBox fx:id="checkTVL20Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="BR Class 20 RF">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
