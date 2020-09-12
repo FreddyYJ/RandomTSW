@@ -11,6 +11,9 @@ Or you can see which route/locomotive DLC includes.\
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
+v0.10.1
+* Fix issue when random pick for 'Tees Valley Line (TSW2)', 'Long Island RailRoad (TSW2)' and 'Ruhr-Sieg Nord (TSW2)'
+
 v0.10.0
 * Add new routes 'Tees Valley Line (TSW2)', 'Long Island RailRoad (TSW2)' and 'Ruhr-Sieg Nord (TSW2)'
 * Add new locomotives 'BR Class 101 BLG', 'BR Class 37/5 RF', 'BR Class 08 BLU', 'BR Class 31/1 BLU' and 'BR Class 20 RF' at Tees Valley Line (TSW2)
