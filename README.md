@@ -11,6 +11,10 @@ Or you can see which route/locomotive DLC includes.\
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
+v0.10.2
+* Update Javadocs
+* Change gui.Main.controller to private
+
 v0.10.1
 * Fix issue when random pick for 'Tees Valley Line (TSW2)', 'Long Island RailRoad (TSW2)' and 'Ruhr-Sieg Nord (TSW2)'
 
