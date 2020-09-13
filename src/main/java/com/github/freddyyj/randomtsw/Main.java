@@ -9,6 +9,7 @@ import javafx.application.Application;
 
 /**
  * main class for control logics
+ * This class should be Singleton. Use {@link Main#getInstance()} to get this object.
  * @author FreddyYJ_
  */
 public class Main {

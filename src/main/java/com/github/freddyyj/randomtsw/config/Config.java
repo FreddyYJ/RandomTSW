@@ -15,6 +15,7 @@ import javax.json.JsonWriter;
 
 /**
  * Default configuration class
+ * Don't create this object directly. Use {@link com.github.freddyyj.randomtsw.Main} methods instead.
  * @author FreddyYJ_
  */
 public class Config {

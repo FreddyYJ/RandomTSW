@@ -21,6 +21,7 @@ import com.github.freddyyj.randomtsw.Weather;
 
 /**
  * Class for managing savefile.
+ * Don't create this object. Use {@link com.github.freddyyj.randomtsw.Main#setSaveFilePath(String)} or {@link com.github.freddyyj.randomtsw.Main#saveAs(String)} instead.
  */
 public class SaveLoco {
 	private JsonObject object;

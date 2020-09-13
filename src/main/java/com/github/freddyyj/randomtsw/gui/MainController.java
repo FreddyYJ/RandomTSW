@@ -29,6 +29,7 @@ import java.util.Vector;
 
 /**
  * Main controller of {@link com.github.freddyyj.randomtsw.gui.Main}.
+ * Call {@link MainController#setRandom(Random)} to set random object to your custom class.
  */
 public class MainController {
     @FXML

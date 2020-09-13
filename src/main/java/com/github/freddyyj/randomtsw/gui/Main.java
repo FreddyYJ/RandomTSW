@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * Main GUI class extends {@link Application}.
- *
+ * Use {@link Main#getController()} to get Controller object of this GUI.
  */
 public class Main extends Application{
 	/**
