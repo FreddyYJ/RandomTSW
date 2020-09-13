@@ -7,8 +7,6 @@ import com.github.freddyyj.randomtsw.config.SaveLoco;
 
 import javafx.application.Application;
 
-import static com.github.freddyyj.randomtsw.gui.Main.controller;
-
 /**
  * main class for control logics
  * @author FreddyYJ_
@@ -54,29 +52,29 @@ public class Main {
 
 		config=new Config();
 		if (config.getConfig("DefaultSaveFilePath")==null)
-			unselectedLocos=new SaveLoco(controller.getRouteList());
+			unselectedLocos=new SaveLoco(com.github.freddyyj.randomtsw.gui.Main.getController().getRouteList());
 		else {
-			unselectedLocos=new SaveLoco(controller.getRouteList(), config.getConfig("DefaultSaveFilePath"));
+			unselectedLocos=new SaveLoco(com.github.freddyyj.randomtsw.gui.Main.getController().getRouteList(), config.getConfig("DefaultSaveFilePath"));
 		}
 
-		for (int i = 0; i< controller.getRouteList().size(); i++){
-			Route route=new Route(controller.getRouteList().get(i));
+		for (int i = 0; i< com.github.freddyyj.randomtsw.gui.Main.getController().getRouteList().size(); i++){
+			Route route=new Route(com.github.freddyyj.randomtsw.gui.Main.getController().getRouteList().get(i));
 			ArrayList<Locomotive> locoList=new ArrayList<>();
-			for (int j = 0; j< controller.getLocoList().get(i).size(); j++){
-				Locomotive locomotive=new Locomotive(controller.getLocoList().get(i).get(j),route);
+			for (int j = 0; j< com.github.freddyyj.randomtsw.gui.Main.getController().getLocoList().get(i).size(); j++){
+				Locomotive locomotive=new Locomotive(com.github.freddyyj.randomtsw.gui.Main.getController().getLocoList().get(i).get(j),route);
 				locoList.add(locomotive);
 			}
 			locos.put(route,locoList);
 			routes.add(route);
 		}
 
-		for (int i = 0; i< controller.getWeather().size(); i++){
-			Weather weather=new Weather(controller.getWeather().get(i),true);
+		for (int i = 0; i< com.github.freddyyj.randomtsw.gui.Main.getController().getWeather().size(); i++){
+			Weather weather=new Weather(com.github.freddyyj.randomtsw.gui.Main.getController().getWeather().get(i),true);
 			weathers.add(weather);
 		}
 
 		reload();
-		controller.reload(unselectedLocos);
+		com.github.freddyyj.randomtsw.gui.Main.getController().reload(unselectedLocos);
 	}
 
 	/**

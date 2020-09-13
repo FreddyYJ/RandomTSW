@@ -13,6 +13,7 @@ import java.util.Optional;
 
 /**
  * Main GUI class extends {@link Application}.
+ *
  */
 public class Main extends Application{
 	/**
@@ -26,7 +27,7 @@ public class Main extends Application{
 	/**
 	 * default {@link MainController}
 	 */
-	public static MainController controller;
+	private static MainController controller;
 
 	/**
 	 * Overrides {@link Application#start(Stage)}.
@@ -65,5 +66,8 @@ public class Main extends Application{
 			}
 		});
 		primaryStage.show();
+	}
+	public static MainController getController(){
+		return controller;
 	}
 }
