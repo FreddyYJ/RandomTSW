@@ -14,6 +14,7 @@ Or you can see which route/locomotive DLC includes.\
 v0.10.2
 * Update Javadocs
 * Change gui.Main.controller to private
+* Fix issue at random loco after random all/TSW2/TSW2020
 
 v0.10.1
 * Fix issue when random pick for 'Tees Valley Line (TSW2)', 'Long Island RailRoad (TSW2)' and 'Ruhr-Sieg Nord (TSW2)'
