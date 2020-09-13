@@ -205,6 +205,8 @@ public class MainController {
         currentRoute = getLocoBoxByID(name);
         currentRoute.setVisible(true);
         currentRoute.setDisable(false);
+
+        currentBox=getRouteByName(loco.getRoute().getName());
     }
 
     @FXML
@@ -261,6 +263,8 @@ public class MainController {
         currentRoute = getLocoBoxByID(name);
         currentRoute.setVisible(true);
         currentRoute.setDisable(false);
+
+        currentBox=getRouteByName(loco.getRoute().getName());
     }
     @FXML
     protected void onRandom2(ActionEvent e){
@@ -286,6 +290,8 @@ public class MainController {
         currentRoute = getLocoBoxByID(name);
         currentRoute.setVisible(true);
         currentRoute.setDisable(false);
+
+        currentBox=getRouteByName(loco.getRoute().getName());
     }
 
     @FXML
