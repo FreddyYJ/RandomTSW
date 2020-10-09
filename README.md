@@ -11,6 +11,14 @@ Or you can see which route/locomotive DLC includes.\
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
+v0.11.0
+* Add new routes 'Main-Spessart Bahn (TSW2)' and 'Rapid Transit (TSW2)'
+* Add new locomotives 'DB BR 185.2', 'DB BR 146.2', 'DB BR 766.2 DBpbzfa' and 'DB BR 143' at Schnellfahrstrecke Köln (TSW2)
+* Add new locomotives 'DB BR 185.2', 'DB BR 146.2', 'DB BR 766.2 DBpbzfa', 'DB BR 182', 'DB BR 143' and 'DB BR 155' at HauptStrecke Rhein-Ruhr (TSW2)
+* Add new locomotives 'DB BR 182' at Ruhr-Sieg Nord (TSW2)
+* Change locomotive name 'DB BR 767.2 DABpbzfa' to 'DB BR 766.2 DBpbzfa' at Ruhr-Sieg Nord (TSW2)
+* Change locomotive name 'DB BR 1442 'Talent 2'' to 'S-Bahn BR 1442 'Talent 2'' at Rapid Transit
+
 v0.10.2
 * Update Javadocs
 * Change gui.Main.controller to private
