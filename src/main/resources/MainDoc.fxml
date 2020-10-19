@@ -181,6 +181,11 @@
                               <Insets left="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
+                        <CheckBox fx:id="checkIOWTsw2" mnemonicParsing="false" onAction="#onCheckRouteSelect" onMouseClicked="#onCheckRouteClick" selected="true" text="Isle of Wight (TSW2)">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </CheckBox>
                         
                      </children>
                   </VBox>
@@ -905,6 +910,15 @@
                                  </padding>
                               </CheckBox>
                               <CheckBox fx:id="checkRT182Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="DB BR 182">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                              </CheckBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="boxIOWLocosTsw2" disable="true" prefHeight="200.0" visible="false">
+                           <children>
+                              <CheckBox fx:id="checkIOW483Tsw2" mnemonicParsing="false" onAction="#onCheckLocoSelect" selected="true" text="Isle of Wight Class 483">
                                  <padding>
                                     <Insets left="5.0" top="5.0" />
                                  </padding>
