@@ -1,7 +1,7 @@
 # RandomTrainSimWorld
 It will pick random route and locomotive from Train Sim World. It can help to select routes, locomotives, or weathers.
 Select randomly route, locomotive, weather, or all.\
-Or you can see which route/locomotive DLC includes.\
+Or you can see which route/locomotive DLC includes.
 * Javadocs: https://freddyyj.github.io/RandomTrainSimWorld/
 
 # How to install
@@ -11,6 +11,10 @@ Or you can see which route/locomotive DLC includes.\
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
+v0.11.1
+* Add new routes 'Isle of Wight (TSW2)'
+* Add new locomotive 'Isle of Wight Class 483' at Isle of Wight (TSW2)'
+
 v0.11.0
 * Add new routes 'Main-Spessart Bahn (TSW2)' and 'Rapid Transit (TSW2)'
 * Add new locomotives 'DB BR 185.2', 'DB BR 146.2', 'DB BR 766.2 DBpbzfa' and 'DB BR 143' at Schnellfahrstrecke Köln (TSW2)
