@@ -11,6 +11,14 @@ Or you can see which route/locomotive DLC includes.
 * Currently Maven Jlink is not released. If Jlink plugin is released, I will update for withput JDK and JavaFX installation.
 
 # Changelog
+v0.11.2
+* Add new routes 'Hauptstrecke München-Augsburg', 'Rhein-Ruhr Osten', 'Oakville Subdivision', and 'West Somerset Railway' for TSW2
+* Add new locomotives 'DB BR 185.2', '146.2', '423', '182', '143', '155', '766.2 DBpbzfa', '403 ICE3', '425', and 'MRCE BR 185.5' at Hauptstrecke München-Augsburg
+* Add new locomotives 'DB BR 185.2', '146.2', '422', '182', '143', '155', and 'MRCE BR 185.5' at Rhein-Ruhr Osten
+* Add new locomotives 'CN GP9RM' and 'CN GP38-2' at Oakville Subdivision
+* Add new locomotives 'BR Class 08 BLU', 'BR Class 20 RF', 'GRN Class 09', 'GRN Class 47', 'GRN Class 33', and 'MAR Class 52 'Western'' at West Somerset Railway
+* Add new locomotive 'DB BR 204' at Main-Spessart Bahn
+
 v0.11.1
 * Add new routes 'Isle of Wight (TSW2)'
 * Add new locomotive 'Isle of Wight Class 483' at Isle of Wight (TSW2)'
