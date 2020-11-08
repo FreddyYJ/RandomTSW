@@ -1,4 +1,5 @@
 # RandomTrainSimWorld
+#### This project is abandoned, move to RandomTrainSimWorld2.
 It will pick random route and locomotive from Train Sim World. It can help to select routes, locomotives, or weathers.
 Select randomly route, locomotive, weather, or all.\
 Or you can see which route/locomotive DLC includes.
